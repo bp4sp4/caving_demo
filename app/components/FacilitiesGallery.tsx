@@ -38,7 +38,7 @@ const defaultFacilities: FacilityImage[] = [
   },
   {
     id: "4",
-    title: "식당 및 영양 관리",
+    title: " 및 영양 관리",
     description:
       "영양사가 관리하는 균형잡힌 식단으로 건강한 식사를 제공합니다.",
     image: "/main_img_bg.jpg",
