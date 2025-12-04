@@ -1,17 +1,21 @@
+// 다른 요양원 프로젝트를 만들 때 이 파일을 page.tsx로 복사해서 사용하세요!
+// siteConfig 부분만 수정하면 됩니다.
+
 "use client";
 
 import Header from "./components/Header";
 import NursingHomeWebsite from "./components/NursingHomeWebsite";
 
 export default function Home() {
-  // 여기서만 데이터를 변경하면 됩니다!
+  // ⭐ 여기서만 데이터를 변경하면 됩니다!
   const siteConfig = {
+    // 메인 슬라이더 설정
     heroSlides: [
       {
         id: "1",
-        image: "/main_img_bg.jpg",
-        title: "따뜻한 보살핌",
-        subtitle: "가족같은 사랑으로 함께합니다",
+        image: "/main_img_bg.jpg", // 이미지 경로 변경
+        title: "따뜻한 보살핌", // 제목 변경
+        subtitle: "가족같은 사랑으로 함께합니다", // 부제목 변경
       },
       {
         id: "2",
@@ -26,16 +30,20 @@ export default function Home() {
         subtitle: "쾌적하고 안전한 생활공간",
       },
     ],
-    aboutTitle: "우리 요양원 소개",
+
+    // 소개 섹션 설정
+    aboutTitle: "우리 요양원 소개", // 제목 변경
     aboutDescription:
-      "저희 요양원은 어르신들께 가족 같은 따뜻함과 전문적인 케어를 제공하는 것을 최우선으로 생각합니다. 20년 이상의 노하우와 경험을 바탕으로 어르신들의 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.",
+      "저희 요양원은 어르신들께 가족 같은 따뜻함과 전문적인 케어를 제공하는 것을 최우선으로 생각합니다. 20년 이상의 노하우와 경험을 바탕으로 어르신들의 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.", // 설명 변경
+
+    // 시설 안내 설정
     facilities: [
       {
         id: "1",
-        title: "쾌적한 거주 공간",
+        title: "쾌적한 거주 공간", // 제목 변경
         description:
-          "넓고 밝은 개인실과 공용 공간으로 편안한 생활을 제공합니다.",
-        image: "/main_img_bg.jpg",
+          "넓고 밝은 개인실과 공용 공간으로 편안한 생활을 제공합니다.", // 설명 변경
+        image: "/main_img_bg.jpg", // 이미지 경로 변경
       },
       {
         id: "2",
@@ -59,12 +67,14 @@ export default function Home() {
         image: "/main_img_bg.jpg",
       },
     ],
+
+    // 연락처 정보 설정
     contactInfo: {
-      phone: "02-1234-5678",
-      address: "서울특별시 강남구 테헤란로 123",
-      hours: "평일 09:00 - 18:00",
+      phone: "02-1234-5678", // 전화번호 변경
+      address: "서울특별시 강남구 테헤란로 123", // 주소 변경
+      hours: "평일 09:00 - 18:00", // 운영시간 변경
+      copyrightText: "© 2024 요양원. All rights reserved.", // 저작권 텍스트 변경
     },
-    copyrightText: "© 2024 요양원. All rights reserved.",
   };
 
   return (
@@ -76,3 +86,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+

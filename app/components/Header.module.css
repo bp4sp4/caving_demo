@@ -1,0 +1,134 @@
+.header {
+  width: 100%;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Top 영역 - 로고와 로그인/회원가입 */
+.top {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.top .wrap {
+  position: relative;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  display: block;
+  text-decoration: none;
+}
+
+.logoImage {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+.toolBox {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.toolLink {
+  font-size: 16px;
+  padding: 10px 20px;
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.toolLink:hover,
+.toolLink:focus {
+  color: #111827;
+  text-decoration: underline;
+}
+
+/* Top_menu 영역 - 네비게이션 */
+.topMenu {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.topMenu .wrap {
+  padding: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navLink {
+  font-size: 23px;
+  padding: 15px 50px;
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: #16a34a;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .top .wrap {
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logoBox {
+    position: static;
+    transform: none;
+  }
+
+  .logoImage {
+    width: 200px;
+  }
+
+  .toolBox {
+    justify-content: center;
+  }
+
+  .toolLink {
+    font-size: 14px;
+    padding: 5px 15px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .navLink {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+

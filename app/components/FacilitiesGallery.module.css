@@ -1,0 +1,150 @@
+.facilitiesSection {
+  padding: 80px 1rem;
+  background-color: #f8fafc;
+}
+
+.facilitiesHeader {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.facilitiesHeaderContent {
+  flex: 1;
+}
+
+.facilitiesTitle {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.facilitiesSubtitle {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: 18px;
+}
+
+.facilitiesGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.facilityCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.facilityCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.facilityImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.facilityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.facilityCard:hover .facilityImage {
+  transform: scale(1.05);
+}
+
+.facilityGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.facilityCardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.facilityCardTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.facilityCardDescription {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1023px) {
+  .facilitiesHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .facilitiesControls {
+    align-self: flex-end;
+  }
+
+  .facilitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .facilitiesTitle {
+    font-size: 36px;
+  }
+
+  .facilitiesSubtitle {
+    font-size: 16px;
+  }
+
+  .facilitiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .facilityImageWrapper {
+    min-height: 400px;
+  }
+
+  .facilityCardTitle {
+    font-size: 24px;
+  }
+
+  .facilityCardDescription {
+    font-size: 16px;
+  }
+}
+

@@ -1,0 +1,607 @@
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.heroSlide {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.heroContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 0 5%;
+  color: #ffffff;
+  z-index: 10;
+}
+
+.heroTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heroTitle {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+
+.heroSubtitle {
+  font-size: clamp(18px, 2.5vw, 32px);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+
+.heroIndicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.indicator {
+  height: 8px;
+  border-radius: 9999px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 8px;
+}
+
+.indicatorActive {
+  background-color: #ffffff;
+  width: 32px;
+}
+
+/* Services Section */
+.servicesSection {
+  padding: 80px 1rem;
+  background-color: #f8fafc;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.serviceCard {
+  background-color: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.serviceIconWrapper {
+  margin-bottom: 1rem;
+}
+
+.serviceIcon {
+  width: 48px;
+  height: 48px;
+  color: #16a34a;
+}
+
+.serviceTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.serviceDescription {
+  font-size: 18px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* About Section */
+.aboutSection {
+  padding: 80px 1rem;
+  background-color: #ffffff;
+}
+
+.aboutContent {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.aboutDescription {
+  font-size: 20px;
+  color: #64748b;
+  line-height: 1.8;
+  margin-top: 1.5rem;
+}
+
+/* Facilities Section */
+.facilitiesSection {
+  padding: 80px 1rem;
+  background-color: #f8fafc;
+}
+
+.facilitiesHeader {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.facilitiesHeaderContent {
+  flex: 1;
+}
+
+.facilitiesTitle {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.facilitiesSubtitle {
+  max-width: 500px;
+  color: #64748b;
+  font-size: 18px;
+}
+
+.facilitiesControls {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.facilityButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.facilityButton:hover {
+  background-color: #f1f5f9;
+  border-color: #16a34a;
+}
+
+.facilityButtonIcon {
+  width: 24px;
+  height: 24px;
+  color: #1e293b;
+}
+
+.facilitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+
+.facilityCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.facilityCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.facilityImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.facilityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.facilityCard:hover .facilityImage {
+  transform: scale(1.05);
+}
+
+.facilityGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.facilityCardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.facilityCardTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.facilityCardDescription {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Consultation Section */
+.consultationSection {
+  padding: 100px 1rem;
+  background-color: #f5f5f5;
+}
+
+.consultationContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.consultationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.consultationTitle {
+  font-size: 64px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.consultationDescription {
+  font-size: 24px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contactDetailItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 22px;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.contactDetailIcon {
+  width: 32px;
+  height: 32px;
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+.consultationForm {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.formTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+}
+
+.formDescription {
+  font-size: 18px;
+  color: #64748b;
+  margin: 0 0 2rem 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formLabel {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #16a34a;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1.25rem;
+  background-color: #1e293b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+  background-color: #f8fafc;
+  padding: 2rem 1rem;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .heroSection {
+    min-height: 80vh;
+    height: 80vh;
+    max-height: 700px;
+  }
+
+  .heroContent {
+    padding: 0 3%;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .facilitiesHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .facilitiesControls {
+    align-self: flex-end;
+  }
+
+  .facilitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contactGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .heroSection {
+    min-height: 70vh;
+    height: 70vh;
+    max-height: 600px;
+  }
+
+  .heroContent {
+    padding: 0 1.5rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heroIndicators {
+    bottom: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 36px;
+  }
+
+  .sectionSubtitle {
+    font-size: 18px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceTitle {
+    font-size: 24px;
+  }
+
+  .serviceDescription {
+    font-size: 16px;
+  }
+
+  .facilitiesTitle {
+    font-size: 36px;
+  }
+
+  .facilitiesSubtitle {
+    font-size: 16px;
+  }
+
+  .facilitiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .facilityImageWrapper {
+    min-height: 400px;
+  }
+
+  .facilityCardTitle {
+    font-size: 24px;
+  }
+
+  .facilityCardDescription {
+    font-size: 16px;
+  }
+
+  .consultationContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .consultationTitle {
+    font-size: 48px;
+  }
+
+  .consultationDescription {
+    font-size: 20px;
+  }
+
+  .contactDetailItem {
+    font-size: 18px;
+  }
+
+  .consultationForm {
+    padding: 2rem;
+  }
+
+  .formTitle {
+    font-size: 28px;
+  }
+
+  .formDescription {
+    font-size: 16px;
+  }
+}
+
