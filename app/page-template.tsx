@@ -59,13 +59,7 @@ export default function Home() {
           "다양한 취미 활동과 프로그램을 즐길 수 있는 여가 공간을 마련했습니다.",
         image: "/main_img_bg.jpg",
       },
-      {
-        id: "4",
-        title: "식당 및 영양 관리",
-        description:
-          "영양사가 관리하는 균형잡힌 식단으로 건강한 식사를 제공합니다.",
-        image: "/main_img_bg.jpg",
-      },
+  
     ],
 
     // 연락처 정보 설정
