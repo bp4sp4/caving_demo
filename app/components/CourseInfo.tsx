@@ -70,13 +70,16 @@ export default function CourseInfo() {
                 <li>연령, 학력, 경력 제한 없이 누구나 가능</li>
               </ul>
             </div>
+            <div className={styles.imageContainer}>
+              <img src="/pen.png" alt="신규자반 과정" className={styles.courseImage} />
+            </div>
           </div>
 
           {/* Middle Box */}
           <div className={styles.contentBox}>
             <h3 className={styles.boxTitle}>자격증 소지자반 과정</h3>
             <p className={styles.boxMainText}>
-              실무 중심의 교육으로 현장에서 바로 활용할 수 있는
+              실무 현장에서 바로 활용할 수 있는
               전문 지식과 기술을 습득할 수 있습니다.
             </p>
             <div className={styles.boxSubSection}>
@@ -86,6 +89,7 @@ export default function CourseInfo() {
               <ul className={styles.subSectionList}>
                 <li>40-50시간(이론·실기 32~42시간 + 현장실습 8시간)</li>
               </ul>
+
             </div>
             <div className={styles.boxSubSection}>
               <div className={styles.subSectionHeader}>
@@ -110,6 +114,9 @@ export default function CourseInfo() {
               <ul className={styles.subSectionList}>
                 <li>간호사, 간호조무사, 사회복지사, 작업치료사, 물리치료사</li>
               </ul>
+            </div>
+            <div className={styles.imageContainer}>
+              <img src="/banner.jpg" alt="신규자반 과정" className={styles.courseImage} />
             </div>
           </div>
 

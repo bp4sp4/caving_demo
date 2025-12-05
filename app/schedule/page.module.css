@@ -1,0 +1,128 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.main {
+  width: 100%;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px 80px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: -1px;
+}
+
+.mapContainer {
+  width: 100%;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map {
+  width: 100%;
+  height: 500px;
+}
+
+.infoContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.infoSection {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.infoTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #34af61;
+}
+
+.infoText {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contactLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #34af61;
+  min-width: 50px;
+}
+
+.contactValue {
+  font-size: 16px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 15px 60px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .map {
+    height: 400px;
+  }
+
+  .infoContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .infoSection {
+    padding: 20px;
+  }
+
+  .infoTitle {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  .infoText {
+    font-size: 15px;
+  }
+
+  .contactValue {
+    font-size: 15px;
+  }
+}
+

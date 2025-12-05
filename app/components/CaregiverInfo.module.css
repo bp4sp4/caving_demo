@@ -200,8 +200,10 @@
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 15px;
+  width: 90px;
   display: inline-block;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .subSectionList {

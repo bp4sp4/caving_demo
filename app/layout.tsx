@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "섬기미요양보호사교육원",
-  description: "요양보호사 교육기관",
+  title: "한평생요양보호사교육원",
+  description: "한평생요양보호사교육원",
 };
 
 export default function RootLayout({
