@@ -1,21 +1,13 @@
 .header {
-  width: 100%;
-  background-color: #ffffff;
-  position: sticky;
-  top: 0;
+  width: 1200px;
+  margin: 0 auto;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-}
-
-/* Top 영역 - 로고와 로그인/회원가입 */
-.top {
-  border-bottom: 1px solid #e5e5e5;
 }
 
 .top .wrap {
@@ -53,7 +45,7 @@
 .toolLink {
   font-size: 16px;
   padding: 10px 20px;
-  color: #4b5563;
+  color: #1e1e1e;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -81,17 +73,37 @@
 
 .navLink {
   font-size: 23px;
-  padding: 15px 50px;
+  padding: 18px 0px;
   color: #374151;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
   white-space: nowrap;
+  position: relative;
+  display: inline-block;
 }
 
 .navLink:hover,
 .navLink:focus {
   color: #16a34a;
-  text-decoration: underline;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 3px;
+  background-color: #16a34a;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.navLink:hover::after,
+.navLink:focus::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 @media (max-width: 768px) {

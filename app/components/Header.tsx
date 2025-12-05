@@ -39,13 +39,13 @@ export default function Header() {
               교육원소개
             </Link>
             <Link href="/schedule" className={styles.navLink}>
-              개강일정
+              오시는길
             </Link>
-            <Link href="/learning" className={styles.navLink}>
-              학습지원센터
+            <Link href="/Caregiver" className={styles.navLink}>
+              요양보호사
             </Link>
             <Link href="/cbt" className={styles.navLink}>
-              CBT모의고사
+              교육과정
             </Link>
           </nav>
         </div>

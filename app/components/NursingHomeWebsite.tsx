@@ -55,8 +55,8 @@ const defaultHeroSlides: HeroSlide[] = [
   {
     id: "1",
     image: "/main_img_bg.jpg",
-    title: "따뜻한 보살핌",
-    subtitle: "가족같은 사랑으로 함께합니다",
+    title: "고용노동부계좌제 교육기관",
+    subtitle: "한평생요양보호사 교육원",
   },
   {
     id: "2",
@@ -179,6 +179,7 @@ const NursingHomeWebsite = ({
                     >
                       <h1 className={styles.heroTitle}>{slide.title}</h1>
                       <p className={styles.heroSubtitle}>{slide.subtitle}</p>
+                      <button className={styles.heroButton}> 더 알아보기 </button>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -197,6 +198,7 @@ const NursingHomeWebsite = ({
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+
         </div>
       </section>
 

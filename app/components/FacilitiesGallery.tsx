@@ -52,9 +52,9 @@ export default function FacilitiesGallery({
     <section className={styles.facilitiesSection}>
       <div className={styles.facilitiesHeader}>
         <div className={styles.facilitiesHeaderContent}>
-          <h2 className={styles.facilitiesTitle}>시설 안내</h2>
+          <h2 className={styles.facilitiesTitle}>요양보호사를 취득해야 하는 이유</h2>
           <p className={styles.facilitiesSubtitle}>
-            어르신들의 편안한 생활을 위한 최신 시설을 갖추고 있습니다
+              요양보호사는 어르신들의 건강과 안전을 보장하는 중요한 인력입니다.
           </p>
         </div>
       </div>
@@ -67,14 +67,24 @@ export default function FacilitiesGallery({
                 alt={facility.title}
                 className={styles.facilityImage}
               />
-              <div className={styles.facilityGradient}></div>
+              <div className={styles.facilityOverlay}></div>
+              <h3 
+                className={styles.facilityCardTitle}
+                dangerouslySetInnerHTML={{ __html: facility.title }}
+              />
+              <button className={styles.viewMoreButton}>
+                자세히보기 +
+              </button>
               <div className={styles.facilityCardContent}>
-                <h3 className={styles.facilityCardTitle}>
-                  {facility.title}
-                </h3>
-                <p className={styles.facilityCardDescription}>
-                  {facility.description}
-                </p>
+                <div className={styles.facilityCardText}>
+                  <h3 
+                    className={styles.facilityCardTitleCenter}
+                    dangerouslySetInnerHTML={{ __html: facility.title }}
+                  />
+                  <p className={styles.facilityCardDescription}>
+                    {facility.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

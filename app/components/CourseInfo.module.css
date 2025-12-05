@@ -1,0 +1,300 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  background: linear-gradient(135deg, #f5f0e8 0%, #faf5f0 100%);
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroDecorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heartDecoration {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ff9ec7 0%, #d8a8e8 100%);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.heartDecoration:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.heartDecoration:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  animation-delay: 2s;
+  width: 40px;
+  height: 40px;
+}
+
+.heartDecoration:nth-child(3) {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-45deg);
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroText {
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 44px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.heroDescription {
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-weight: 400;
+  color: #999;
+}
+
+.heroIllustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustrationPlaceholder {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.caregiverIcon,
+.elderlyIcon {
+  font-size: 120px;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+/* Intro Section */
+.introSection {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.introContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.introTitle {
+  font-size: 32px;
+  letter-spacing: -1px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+}
+
+.introText {
+  font-size: 20px;
+  letter-spacing: -1px;
+  font-weight: 400;
+  color: #444;
+}
+
+/* Content Section - Three Boxes */
+.contentSection {
+  padding: 80px 20px;
+  background: #fafafa;
+}
+
+.contentContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.contentBox {
+  background: #eee;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 615px;
+  height: 686Px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.boxTitle {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  line-height: 1;
+  display: inline-block;
+  background: linear-gradient(to bottom, transparent 50%, #9edbb4 50%);
+  padding: 0 5px;
+}
+
+.boxMainText {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.boxSubSection {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center
+}
+
+.subSectionHeader {
+  background: #34af61;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.subSectionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subSectionList li {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  position: relative;
+}
+
+.checkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkList li {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  list-style-type: disc;
+  position: relative;
+  margin-left: 20px;
+}
+
+.contentBox:last-child .checkList li:last-child {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.warningText {
+  color: #6e6e6e !important;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contentContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .illustrationPlaceholder {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 60px 20px 80px;
+  }
+
+  .introSection,
+  .contentSection {
+    padding: 60px 20px;
+  }
+
+  .contentBox {
+    padding: 30px 20px;
+  }
+
+  .illustrationPlaceholder {
+    width: 250px;
+    height: 250px;
+    gap: 20px;
+  }
+
+  .caregiverIcon,
+  .elderlyIcon {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 430px) {
+  .heroSection {
+    padding: 40px 15px 60px;
+  }
+
+  .introSection,
+  .contentSection {
+    padding: 40px 15px;
+  }
+
+  .contentBox {
+    padding: 25px 15px;
+  }
+}
+
