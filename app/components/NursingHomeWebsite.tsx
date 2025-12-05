@@ -283,7 +283,6 @@ const NursingHomeWebsite = ({
                 className={`${styles.qaQuestion} ${openQaIndex === 3 ? styles.qaQuestionOpen : ''}`}
                 onClick={() => toggleQa(3)}
               >
-                
                 <span className={styles.qaText}>자격증 취득 후 취업 지원이 되나요?</span>
                 <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 3 ? styles.qaChevronOpen : ''}`} />
               </button>
@@ -304,8 +303,7 @@ const NursingHomeWebsite = ({
           <div className={styles.consultationInfo}>
             <h2 className={styles.consultationTitle}>상담 신청</h2>
             <p className={styles.consultationDescription}>
-              궁금한 점이 있으시면 언제든지 문의해 주세요. 친절하게 상담해
-              드리겠습니다.
+              궁금한 점이 있으시면 언제든지 문의해 주세요<span className={styles.mobileBreak}><br/></span> 친절하게 상담해 드리겠습니다.
             </p>
             <div className={styles.contactDetails}>
               <div className={styles.contactDetailItem}>
