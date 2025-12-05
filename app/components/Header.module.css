@@ -106,17 +106,74 @@
   transform: translateX(-50%) scaleX(1);
 }
 
+/* 햄버거 메뉴 버튼 */
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: #1e1e1e;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobileMenuButton:hover .hamburgerLine {
+  background-color: #16a34a;
+}
+
+.mobileMenuButton .closeIcon {
+  font-size: 2rem;
+  color: #1e1e1e;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.mobileMenuButton:hover .closeIcon {
+  color: #16a34a;
+}
+
+.mobileMenuButton.menuOpen {
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
+  .header {
+    width: 100%;
+    position: relative;
+  }
+
+  .top {
+    position: relative;
+  }
+
   .top .wrap {
     height: auto;
     padding: 1rem;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
+    position: relative;
   }
 
   .logoBox {
     position: static;
     transform: none;
+    flex: 1;
   }
 
   .logoImage {
@@ -124,23 +181,86 @@
   }
 
   .toolBox {
-    justify-content: center;
+    display: none;
   }
 
-  .toolLink {
-    font-size: 14px;
-    padding: 5px 15px;
+  .mobileMenuButton {
+    display: flex;
+  }
+
+  .topMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    background-color: #ffffff;
+    z-index: 1000;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .topMenu.menuOpen {
+    max-height: 100vh;
+  }
+
+  .topMenu .wrap {
+    padding: 2rem;
+    position: relative;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .closeIcon {
+    font-size: 2rem;
+    color: #1e1e1e;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .closeButton:hover .closeIcon,
+  .closeButton:focus .closeIcon {
+    color: #16a34a;
   }
 
   .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
   }
 
   .navLink {
-    font-size: 18px;
-    padding: 10px 20px;
+    font-size: 20px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+    display: block;
+  }
+
+  .navLink::after {
+    display: none;
+  }
+
+  .navLink:hover,
+  .navLink:focus {
+    color: #16a34a;
+    background-color: #f9fafb;
   }
 }
 

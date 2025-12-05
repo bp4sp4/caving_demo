@@ -54,7 +54,7 @@ export default function FacilitiesGallery({
         <div className={styles.facilitiesHeaderContent}>
           <h2 className={styles.facilitiesTitle}>요양보호사를 취득해야 하는 이유</h2>
           <p className={styles.facilitiesSubtitle}>
-              요양보호사는 어르신들의 건강과 안전을 보장하는 중요한 인력입니다.
+              요양보호사는 어르신들의 건강과 안전을 보장하는<span className={styles.mobileBreak}><br/></span> 중요한 인력입니다.
           </p>
         </div>
       </div>

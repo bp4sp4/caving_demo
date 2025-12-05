@@ -27,6 +27,10 @@
   font-size: 18px;
 }
 
+.mobileBreak {
+  display: none;
+}
+
 .facilitiesGrid {
   max-width: 1200px;
   margin: 0 auto;
@@ -210,15 +214,24 @@
 
 @media (max-width: 767px) {
   .facilitiesTitle {
-    font-size: 36px;
+    font-size: 25px;
   }
 
   .facilitiesSubtitle {
-    font-size: 16px;
+    font-size: 15px;
+  }
+
+  .mobileBreak {
+    display: inline;
   }
 
   .facilitiesGrid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .facilityCard {
+    width: 100%;
   }
 
   .facilityImageWrapper {

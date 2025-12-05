@@ -11,6 +11,7 @@ import {
   Heart,
   Users,
   Award,
+  ChevronUp,
 } from "lucide-react";
 import styles from "./NursingHomeWebsite.module.css";
 import FacilitiesGallery from "./FacilitiesGallery";
@@ -141,6 +142,11 @@ const NursingHomeWebsite = ({
   },
 }: NursingHomeProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [openQaIndex, setOpenQaIndex] = useState<number | null>(null);
+
+  const toggleQa = (index: number) => {
+    setOpenQaIndex(openQaIndex === index ? null : index);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -218,6 +224,80 @@ const NursingHomeWebsite = ({
       {/* Facilities Gallery */}
       <FacilitiesGallery facilities={facilities} />
 
+      {/* Q&A Section */}
+      <section className={styles.qaSection}>
+        <div className={styles.sectionContainer}>
+          <h2 className={styles.sectionTitle}>자주 묻는 질문</h2>
+          <div className={styles.qaList}>
+            <div className={styles.qaItem}>
+              <button 
+                className={`${styles.qaQuestion} ${openQaIndex === 0 ? styles.qaQuestionOpen : ''}`}
+                onClick={() => toggleQa(0)}
+              >
+                
+                <span className={styles.qaText}>요양보호사 자격증은 어떻게 취득하나요?</span>
+                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 0 ? styles.qaChevronOpen : ''}`} />
+              </button>
+              <div className={`${styles.qaAnswer} ${openQaIndex === 0 ? styles.qaAnswerOpen : ''}`}>
+                <p>
+                  요양보호사 자격증은 고용노동부 지정 교육기관에서 240시간의 교육을 이수한 후, 
+                  자격시험에 합격하면 취득할 수 있습니다. 저희 교육원에서는 체계적인 교육과정을 
+                  통해 자격증 취득을 지원하고 있습니다.
+                </p>
+              </div>
+            </div>
+            <div className={styles.qaItem}>
+              <button 
+                className={`${styles.qaQuestion} ${openQaIndex === 1 ? styles.qaQuestionOpen : ''}`}
+                onClick={() => toggleQa(1)}
+              >
+                
+                <span className={styles.qaText}>교육 기간은 얼마나 걸리나요?</span>
+                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 1 ? styles.qaChevronOpen : ''}`} />
+              </button>
+              <div className={`${styles.qaAnswer} ${openQaIndex === 1 ? styles.qaAnswerOpen : ''}`}>
+                <p>
+                  기본 교육과정은 약 2-3개월 정도 소요됩니다. 주말반과 평일반을 운영하고 있어 
+                  직장인도 수강이 가능합니다. 자세한 일정은 상담을 통해 안내해드립니다.
+                </p>
+              </div>
+            </div>
+            <div className={styles.qaItem}>
+              <button 
+                className={`${styles.qaQuestion} ${openQaIndex === 2 ? styles.qaQuestionOpen : ''}`}
+                onClick={() => toggleQa(2)}
+              >
+                
+                <span className={styles.qaText}>교육비는 얼마인가요?</span>
+                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 2 ? styles.qaChevronOpen : ''}`} />
+              </button>
+              <div className={`${styles.qaAnswer} ${openQaIndex === 2 ? styles.qaAnswerOpen : ''}`}>
+                <p>
+                  교육비는 과정에 따라 상이하며, 고용노동부 계좌제 지원을 받을 수 있습니다. 
+                  정확한 교육비와 지원금액은 상담을 통해 안내해드립니다.
+                </p>
+              </div>
+            </div>
+            <div className={styles.qaItem}>
+              <button 
+                className={`${styles.qaQuestion} ${openQaIndex === 3 ? styles.qaQuestionOpen : ''}`}
+                onClick={() => toggleQa(3)}
+              >
+                
+                <span className={styles.qaText}>자격증 취득 후 취업 지원이 되나요?</span>
+                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 3 ? styles.qaChevronOpen : ''}`} />
+              </button>
+              <div className={`${styles.qaAnswer} ${openQaIndex === 3 ? styles.qaAnswerOpen : ''}`}>
+                <p>
+                  네, 저희 교육원에서는 자격증 취득 후 취업 상담 및 알선 서비스를 제공하고 있습니다. 
+                  다양한 요양시설과의 네트워크를 통해 취업 기회를 제공해드립니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Consultation Section */}
       <section className={styles.consultationSection}>
         <div className={styles.consultationContainer}>
@@ -241,65 +321,6 @@ const NursingHomeWebsite = ({
                 <span>{contactInfo.hours}</span>
               </div>
             </div>
-          </div>
-          <div className={styles.consultationForm}>
-            <h3 className={styles.formTitle}>상담 신청서</h3>
-            <p className={styles.formDescription}>
-              정보를 입력해 주시면 빠르게 연락드리겠습니다.
-            </p>
-            <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-              <div className={styles.formGroup}>
-                <label htmlFor="name" className={styles.formLabel}>
-                  이름
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className={styles.formInput}
-                  placeholder="이름을 입력해주세요"
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="contact" className={styles.formLabel}>
-                  연락처
-                </label>
-                <input
-                  type="tel"
-                  id="contact"
-                  name="contact"
-                  className={styles.formInput}
-                  placeholder="연락처를 입력해주세요"
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.formLabel}>
-                  이메일
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className={styles.formInput}
-                  placeholder="이메일을 입력해주세요"
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="inquiry" className={styles.formLabel}>
-                  문의 내용
-                </label>
-                <textarea
-                  id="inquiry"
-                  name="inquiry"
-                  className={styles.formTextarea}
-                  placeholder="문의 내용을 입력해주세요"
-                  rows={5}
-                />
-              </div>
-              <button type="submit" className={styles.submitButton}>
-                상담 신청하기
-              </button>
-            </form>
           </div>
         </div>
       </section>
