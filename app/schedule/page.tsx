@@ -128,11 +128,6 @@ export default function SchedulePage() {
       <main className={styles.main}>
         <section className={styles.section}>
           <h1 className={styles.title}>교육원 오시는길</h1>
-          
-          <div className={styles.mapContainer}>
-            <div ref={mapRef} className={styles.map}></div>
-          </div>
-
           <div className={styles.infoContainer}>
             <div className={styles.infoSection}>
               <h2 className={styles.infoTitle}>주소</h2>
@@ -152,6 +147,11 @@ export default function SchedulePage() {
               </div>
             </div>
           </div>
+          <div className={styles.mapContainer}>
+            <div ref={mapRef} className={styles.map}></div>
+          </div>
+
+          
         </section>
       </main>
     </div>
