@@ -23,7 +23,9 @@ export default function SchedulePage() {
 
     // 이미 스크립트가 로드되어 있는지 확인
     if (window.kakao && window.kakao.maps) {
-      initMap();
+      window.kakao.maps.load(() => {
+        initMap();
+      });
       return;
     }
 
@@ -34,17 +36,24 @@ export default function SchedulePage() {
 
     if (existingScript) {
       if (window.kakao && window.kakao.maps) {
-        initMap();
+        window.kakao.maps.load(() => {
+          initMap();
+        });
       } else {
-        existingScript.addEventListener("load", initMap);
+        existingScript.addEventListener("load", () => {
+          if (window.kakao && window.kakao.maps) {
+            window.kakao.maps.load(() => {
+              initMap();
+            });
+          }
+        });
       }
       return;
     }
 
+    // 스크립트 로드 (autoload=false 사용)
     const script = document.createElement("script");
-    script.async = true;
-    // 공식 예제와 동일하게 autoload=false 제거
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`;
     
     script.onerror = (error) => {
       console.error("카카오맵 스크립트 로드 실패:", error);
@@ -58,15 +67,18 @@ export default function SchedulePage() {
     };
 
     script.onload = () => {
-      // 스크립트 로드 후 바로 맵 초기화 (공식 예제 방식)
+      // autoload=false를 사용했으므로 kakao.maps.load()로 명시적으로 로드
       if (window.kakao && window.kakao.maps) {
-        initMap();
+        window.kakao.maps.load(() => {
+          initMap();
+        });
       } else {
         console.error("카카오맵 객체를 찾을 수 없습니다.");
       }
     };
 
-    document.head.appendChild(script);
+    // body에 추가
+    document.body.appendChild(script);
 
     function initMap() {
       if (!mapRef.current) {
@@ -74,9 +86,15 @@ export default function SchedulePage() {
         return;
       }
 
+      // kakao 객체 확인
+      if (!window.kakao || !window.kakao.maps) {
+        console.error("카카오맵 객체를 찾을 수 없습니다.");
+        return;
+      }
+
       try {
-        // 대구시 동구 아양로 39, 우진빌딩 7층 좌표
-        const position = new window.kakao.maps.LatLng(35.8804, 128.6283);
+        // 서울시 도봉구 마들로 13길 61, B동 9층 906호 좌표
+        const position = new window.kakao.maps.LatLng(37.6544, 127.0476);
         
         const options = {
           center: position,
@@ -94,7 +112,7 @@ export default function SchedulePage() {
 
         // 인포윈도우 생성
         const infowindow = new window.kakao.maps.InfoWindow({
-          content: '<div style="padding:10px;font-size:14px;text-align:center;">우진빌딩 7층</div>',
+          content: '<div style="padding:10px;font-size:14px;text-align:center;">B동 9층 906호</div>',
         });
 
         infowindow.open(map, marker);
@@ -119,21 +137,18 @@ export default function SchedulePage() {
             <div className={styles.infoSection}>
               <h2 className={styles.infoTitle}>주소</h2>
               <p className={styles.infoText}>
-                대구시 동구 아양로 39, 우진빌딩 7층
+                서울시 도봉구 마들로 13길 61(창동씨드큐브), B동 9층 906호
               </p>
             </div>
 
             <div className={styles.infoSection}>
-              <h2 className={styles.infoTitle}>고객센터</h2>
+              <h2 className={styles.infoTitle}>문의</h2>
               <div className={styles.contactInfo}>
                 <div className={styles.contactItem}>
                   <span className={styles.contactLabel}>TEL</span>
-                  <span className={styles.contactValue}>053-952-1141</span>
+                  <span className={styles.contactValue}>02-2135-9249</span>
                 </div>
-                <div className={styles.contactItem}>
-                  <span className={styles.contactLabel}>FAX</span>
-                  <span className={styles.contactValue}>053-952-1145</span>
-                </div>
+                
               </div>
             </div>
           </div>
