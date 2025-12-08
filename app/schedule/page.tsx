@@ -130,7 +130,7 @@ export default function SchedulePage() {
           <h1 className={styles.title}>교육원 오시는길</h1>
           <div className={styles.infoContainer}>
             <div className={styles.infoSection}>
-              <h2 className={styles.infoTitle}>주소</h2>
+              <h2 className={styles.infoTitle}>찾아오시는길</h2>
               <p className={styles.infoText}>
                 서울시 도봉구 마들로 13길 61(창동씨드큐브), B동 9층 906호
               </p>
@@ -143,7 +143,10 @@ export default function SchedulePage() {
                   <span className={styles.contactLabel}>TEL</span>
                   <span className={styles.contactValue}>02-2135-9249</span>
                 </div>
-                
+                <div className={styles.contactItem}>
+                  <span className={styles.contactLabel}>EMAIL</span>
+                  <span className={styles.contactValue}>info@example.com</span>
+                </div>
               </div>
             </div>
           </div>

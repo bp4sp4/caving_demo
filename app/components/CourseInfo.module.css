@@ -316,6 +316,23 @@
 
   .contentBox {
     padding: 30px 20px;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .boxSubSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .subSectionHeader {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .imageContainer {
+    height: 250px;
   }
 
   .illustrationPlaceholder {
@@ -342,6 +359,23 @@
 
   .contentBox {
     padding: 25px 15px;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .boxSubSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .subSectionHeader {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .imageContainer {
+    height: 200px;
   }
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./FacilitiesGallery.module.css";
 
 interface FacilityImage {
@@ -48,6 +48,12 @@ const defaultFacilities: FacilityImage[] = [
 export default function FacilitiesGallery({
   facilities = defaultFacilities,
 }: FacilitiesGalleryProps) {
+  const [openCardId, setOpenCardId] = useState<string | null>(null);
+
+  const handleToggleCard = (id: string) => {
+    setOpenCardId(openCardId === id ? null : id);
+  };
+
   return (
     <section className={styles.facilitiesSection}>
       <div className={styles.facilitiesHeader}>
@@ -59,36 +65,52 @@ export default function FacilitiesGallery({
         </div>
       </div>
       <div className={styles.facilitiesGrid}>
-        {facilities.map((facility) => (
-          <div key={facility.id} className={styles.facilityCard}>
-            <div className={styles.facilityImageWrapper}>
-              <img
-                src={facility.image}
-                alt={facility.title}
-                className={styles.facilityImage}
-              />
-              <div className={styles.facilityOverlay}></div>
-              <h3 
-                className={styles.facilityCardTitle}
-                dangerouslySetInnerHTML={{ __html: facility.title }}
-              />
-              <button className={styles.viewMoreButton}>
-                자세히보기 +
-              </button>
-              <div className={styles.facilityCardContent}>
-                <div className={styles.facilityCardText}>
-                  <h3 
-                    className={styles.facilityCardTitleCenter}
-                    dangerouslySetInnerHTML={{ __html: facility.title }}
-                  />
+        {facilities.map((facility) => {
+          const isOpen = openCardId === facility.id;
+          return (
+            <div 
+              key={facility.id} 
+              className={`${styles.facilityCard} ${isOpen ? styles.cardOpen : ''}`}
+            >
+              <div className={styles.facilityImageWrapper}>
+                <img
+                  src={facility.image}
+                  alt={facility.title}
+                  className={styles.facilityImage}
+                />
+                <div className={styles.facilityOverlay}></div>
+                <h3 
+                  className={styles.facilityCardTitle}
+                  dangerouslySetInnerHTML={{ __html: facility.title }}
+                />
+                <button 
+                  className={styles.viewMoreButton}
+                  onClick={() => handleToggleCard(facility.id)}
+                >
+                  자세히보기
+                </button>
+                <div className={`${styles.facilityCardContent} ${isOpen ? styles.contentOpen : ''}`}>
+                  <div className={styles.facilityCardHeader}>
+                    <h3 
+                      className={styles.facilityCardTitleCenter}
+                      dangerouslySetInnerHTML={{ __html: facility.title }}
+                    />
+                    <button 
+                      className={styles.closeButton}
+                      onClick={() => handleToggleCard(facility.id)}
+                      aria-label="닫기"
+                    >
+                      ×
+                    </button>
+                  </div>
                   <p className={styles.facilityCardDescription}>
                     {facility.description}
                   </p>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

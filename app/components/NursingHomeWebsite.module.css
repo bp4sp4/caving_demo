@@ -261,6 +261,7 @@
 .facilityButton:hover {
   background-color: #f1f5f9;
   border-color: #16a34a;
+  
 }
 
 .facilityButtonIcon {
@@ -332,6 +333,7 @@
   right: 0;
   padding: 2rem;
   z-index: 2;
+
 }
 
 .facilityCardTitle {
@@ -384,10 +386,6 @@
   color: #64748b;
   line-height: 1.6;
   margin: 0;
-}
-
-.mobileBreak {
-  display: none;
 }
 
 .contactDetails {
@@ -535,10 +533,6 @@
   font-weight: 600;
   color: #1e1e1e;
   transition: all 0.3s ease;
-}
-
-.qaQuestion:hover {
-  background-color: #fafafa;
 }
 
 .qaQuestionOpen {
@@ -737,10 +731,6 @@
 
   .consultationDescription {
     font-size: 20px;
-  }
-
-  .mobileBreak {
-    display: inline;
   }
 
   .contactDetails {
