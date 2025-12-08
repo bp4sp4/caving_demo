@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import styles from "./NursingHomeWebsite.module.css";
 import FacilitiesGallery from "./FacilitiesGallery";
+import { Feature197, type FeatureItem } from "./Feature197";
 
 
 interface HeroSlide {
@@ -42,6 +43,7 @@ interface NursingHomeProps {
   heroSlides?: HeroSlide[];
   services?: ServiceCard[];
   facilities?: FacilityImage[];
+  feature197Items?: FeatureItem[];
   aboutTitle?: string;
   aboutDescription?: string;
   contactInfo?: {
@@ -128,10 +130,49 @@ const defaultFacilities: FacilityImage[] = [
   },
 ];
 
+const defaultFeature197Items: FeatureItem[] = [
+  {
+    id: 1,
+    title: "전문 교육과정",
+    image: "https://images.unsplash.com/photo-1551250928-243dc937c49d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    description:
+      "요양보호사 자격증 취득을 위한 전문 교육과정을 제공합니다. 이론과 실습을 병행하여 실무 현장에서 바로 활용할 수 있는 전문 지식과 기술을 습득할 수 있습니다.",
+  },
+  {
+    id: 2,
+    title: "국비지원 가능",
+    image: "https://images.unsplash.com/photo-1551250928-e4a05afaed1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    description:
+      "국비지원을 통해 저렴한 비용으로 전문 교육을 이수할 수 있습니다. 고용노동부 계좌제 교육기관으로 등록되어 있어 국비지원 혜택을 받을 수 있습니다.",
+  },
+  {
+    id: 3,
+    title: "실무 현장 실습",
+    image: "https://images.unsplash.com/photo-1536735561749-fc87494598cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    description:
+      "실제 요양 시설에서의 현장 실습을 통해 실무 경험을 쌓습니다. 현장 실습 80시간을 포함하여 취업 후 바로 활용할 수 있는 전문 지식을 습득합니다.",
+  },
+  {
+    id: 4,
+    title: "재취업 지원",
+    image: "https://images.unsplash.com/photo-1548324215-9133768e4094?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    description:
+      "재취업 1위 자격증인 요양보호사 자격증을 취득하여 새로운 직장에서 안정적인 수입을 보장받을 수 있습니다. 빠른 취업과 안정적인 수입을 보장합니다.",
+  },
+  {
+    id: 5,
+    title: "유연한 교육 시간",
+    image: "https://images.unsplash.com/photo-1550070881-a5d71eda5800?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    description:
+      "주간반, 야간반, 주말반 등 다양한 교육 시간을 제공하여 직장인이나 학생도 수강할 수 있습니다. 수강생의 상황에 맞춰 유연하게 교육을 받을 수 있습니다.",
+  },
+];
+
 const NursingHomeWebsite = ({
   heroSlides = defaultHeroSlides,
   services = defaultServices,
   facilities = defaultFacilities,
+  feature197Items = defaultFeature197Items,
   aboutTitle = "우리 요양원 소개",
   aboutDescription =
     "저희 요양원은 어르신들께 가족 같은 따뜻함과 전문적인 케어를 제공하는 것을 최우선으로 생각합니다. 20년 이상의 노하우와 경험을 바탕으로 어르신들의 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.",
@@ -223,6 +264,9 @@ const NursingHomeWebsite = ({
 
       {/* Facilities Gallery */}
       <FacilitiesGallery facilities={facilities} />
+
+      {/* Feature197 Accordion Section */}
+      <Feature197 features={feature197Items} />
 
       {/* Q&A Section */}
       <section className={styles.qaSection}>
