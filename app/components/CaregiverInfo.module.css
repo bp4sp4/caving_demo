@@ -6,12 +6,11 @@
 /* Hero Section */
 .heroSection {
   position: relative;
-  background-image: url('/Caregiver.jpg');
+  background-image: url('/Caregiver1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
-  height: 400px;
+  height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;

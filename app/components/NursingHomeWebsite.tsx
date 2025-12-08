@@ -11,7 +11,6 @@ import {
   Heart,
   Users,
   Award,
-  ChevronUp,
 } from "lucide-react";
 import styles from "./NursingHomeWebsite.module.css";
 import FacilitiesGallery from "./FacilitiesGallery";
@@ -133,39 +132,33 @@ const defaultFacilities: FacilityImage[] = [
 const defaultFeature197Items: FeatureItem[] = [
   {
     id: 1,
-    title: "전문 교육과정",
-    image: "https://images.unsplash.com/photo-1551250928-243dc937c49d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    title: "누구나 수강할 수 있나요?",
+    image: "/qna01.png",
     description:
-      "요양보호사 자격증 취득을 위한 전문 교육과정을 제공합니다. 이론과 실습을 병행하여 실무 현장에서 바로 활용할 수 있는 전문 지식과 기술을 습득할 수 있습니다.",
+      "요양보호사 자격증은 고등학교 졸업 이상이라면 누구나 수강 가능합니다.",
   },
   {
     id: 2,
-    title: "국비지원 가능",
-    image: "https://images.unsplash.com/photo-1551250928-e4a05afaed1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    title: "나이 제한이 있나요?",
+    image: "/qna02.png",
     description:
-      "국비지원을 통해 저렴한 비용으로 전문 교육을 이수할 수 있습니다. 고용노동부 계좌제 교육기관으로 등록되어 있어 국비지원 혜택을 받을 수 있습니다.",
+      "공부 시작에 나이제한은 따로 없으며 실제로 60대 이후에 시작하시는 분들도 많습니다.",
   },
   {
     id: 3,
-    title: "실무 현장 실습",
+    title: "공부가 어렵지 않나요?",
     image: "https://images.unsplash.com/photo-1536735561749-fc87494598cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     description:
-      "실제 요양 시설에서의 현장 실습을 통해 실무 경험을 쌓습니다. 현장 실습 80시간을 포함하여 취업 후 바로 활용할 수 있는 전문 지식을 습득합니다.",
+      "처음엔 익숙하지 않을 수 있지만, 조금만 적응하시면 대부분 합격하고 계십니다. 체계적인 교육원의 시스템과 함께 80대까지 모두 합격하셨으니, 걱정하지 않으셔도 됩니다.",
   },
   {
     id: 4,
-    title: "재취업 지원",
+    title: "기간은 얼마나 걸리나요?",
     image: "https://images.unsplash.com/photo-1548324215-9133768e4094?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     description:
-      "재취업 1위 자격증인 요양보호사 자격증을 취득하여 새로운 직장에서 안정적인 수입을 보장받을 수 있습니다. 빠른 취업과 안정적인 수입을 보장합니다.",
+      "기본 교육과정은 약 2-3개월 정도 소요됩니다. 주말반과 평일반에 따라 기간이 달라질 수 있어 자세한 일정은 상담을 통해 안내 도와드리겠습니다.",
   },
-  {
-    id: 5,
-    title: "유연한 교육 시간",
-    image: "https://images.unsplash.com/photo-1550070881-a5d71eda5800?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    description:
-      "주간반, 야간반, 주말반 등 다양한 교육 시간을 제공하여 직장인이나 학생도 수강할 수 있습니다. 수강생의 상황에 맞춰 유연하게 교육을 받을 수 있습니다.",
-  },
+
 ];
 
 const NursingHomeWebsite = ({
@@ -183,11 +176,6 @@ const NursingHomeWebsite = ({
   },
 }: NursingHomeProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [openQaIndex, setOpenQaIndex] = useState<number | null>(null);
-
-  const toggleQa = (index: number) => {
-    setOpenQaIndex(openQaIndex === index ? null : index);
-  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -249,130 +237,42 @@ const NursingHomeWebsite = ({
         </div>
       </section>
 
-      {/* About Section */}
-      <section className={styles.aboutSection}>
-        <div className={styles.sectionContainer}>
-          <div className={styles.aboutContent}>
-            <h2 className={styles.sectionTitle}>{aboutTitle}</h2>
-            <p className={styles.aboutDescription}>{aboutDescription}</p>
-          </div>
-        </div>
-      </section>
-
       {/* Latest Notices */}
       
 
       {/* Facilities Gallery */}
       <FacilitiesGallery facilities={facilities} />
 
-      {/* Feature197 Accordion Section */}
+      {/* Feature197 Accordion Section (자주 묻는 질문) */}
       <Feature197 features={feature197Items} />
-
-      {/* Q&A Section */}
-      <section className={styles.qaSection}>
-        <div className={styles.sectionContainer}>
-          <h2 className={styles.sectionTitle}>자주 묻는 질문</h2>
-          <div className={styles.qaList}>
-            <div className={styles.qaItem}>
-              <button 
-                className={`${styles.qaQuestion} ${openQaIndex === 0 ? styles.qaQuestionOpen : ''}`}
-                onClick={() => toggleQa(0)}
-              >
-                
-                <span className={styles.qaText}>요양보호사 자격증은 어떻게 취득하나요?</span>
-                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 0 ? styles.qaChevronOpen : ''}`} />
-              </button>
-              <div className={`${styles.qaAnswer} ${openQaIndex === 0 ? styles.qaAnswerOpen : ''}`}>
-                <p>
-                  요양보호사 자격증은 고용노동부 지정 교육기관에서 240시간의 교육을 이수한 후, 
-                  자격시험에 합격하면 취득할 수 있습니다. 저희 교육원에서는 체계적인 교육과정을 
-                  통해 자격증 취득을 지원하고 있습니다.
-                </p>
-              </div>
-            </div>
-            <div className={styles.qaItem}>
-              <button 
-                className={`${styles.qaQuestion} ${openQaIndex === 1 ? styles.qaQuestionOpen : ''}`}
-                onClick={() => toggleQa(1)}
-              >
-                
-                <span className={styles.qaText}>교육 기간은 얼마나 걸리나요?</span>
-                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 1 ? styles.qaChevronOpen : ''}`} />
-              </button>
-              <div className={`${styles.qaAnswer} ${openQaIndex === 1 ? styles.qaAnswerOpen : ''}`}>
-                <p>
-                  기본 교육과정은 약 2-3개월 정도 소요됩니다. 주말반과 평일반을 운영하고 있어 
-                  직장인도 수강이 가능합니다. 자세한 일정은 상담을 통해 안내해드립니다.
-                </p>
-              </div>
-            </div>
-            <div className={styles.qaItem}>
-              <button 
-                className={`${styles.qaQuestion} ${openQaIndex === 2 ? styles.qaQuestionOpen : ''}`}
-                onClick={() => toggleQa(2)}
-              >
-                
-                <span className={styles.qaText}>교육비는 얼마인가요?</span>
-                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 2 ? styles.qaChevronOpen : ''}`} />
-              </button>
-              <div className={`${styles.qaAnswer} ${openQaIndex === 2 ? styles.qaAnswerOpen : ''}`}>
-                <p>
-                  교육비는 과정에 따라 상이하며, 고용노동부 계좌제 지원을 받을 수 있습니다. 
-                  정확한 교육비와 지원금액은 상담을 통해 안내해드립니다.
-                </p>
-              </div>
-            </div>
-            <div className={styles.qaItem}>
-              <button 
-                className={`${styles.qaQuestion} ${openQaIndex === 3 ? styles.qaQuestionOpen : ''}`}
-                onClick={() => toggleQa(3)}
-              >
-                <span className={styles.qaText}>자격증 취득 후 취업 지원이 되나요?</span>
-                <ChevronUp className={`${styles.qaChevron} ${openQaIndex === 3 ? styles.qaChevronOpen : ''}`} />
-              </button>
-              <div className={`${styles.qaAnswer} ${openQaIndex === 3 ? styles.qaAnswerOpen : ''}`}>
-                <p>
-                  네, 저희 교육원에서는 자격증 취득 후 취업 상담 및 알선 서비스를 제공하고 있습니다. 
-                  다양한 요양시설과의 네트워크를 통해 취업 기회를 제공해드립니다.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Consultation Section */}
       <section className={styles.consultationSection}>
         <div className={styles.consultationContainer}>
           <div className={styles.consultationInfo}>
-            <h2 className={styles.consultationTitle}>상담 신청</h2>
-            <p className={styles.consultationDescription}>
-              궁금한 점이 있으시면 언제든지 문의해 주세요<span className={styles.mobileBreak}><br/></span> 친절하게 상담해 드리겠습니다.
-            </p>
-            <div className={styles.contactDetails}>
+            <div className={styles.consultationTitleWrapper}>
+              <p className={styles.consultationDescription}>
+                친절하게 상담해 드리겠습니다.<br/>
+                궁금한 점이 있으시면<span className={styles.mobileLineBreak}><br/></span> 언제든지 문의해 주세요.
+              </p>
+            </div>
+            <div className={styles.contactDetailsGrid}>
               <div className={styles.contactDetailItem}>
-                <Phone className={styles.contactDetailIcon} />
-                <span>{contactInfo.phone}</span>
+                <p className={styles.contactDetailLabel}>TEL</p>
+                <span className={styles.contactDetailValue}>02-2135-9249</span>
               </div>
               <div className={styles.contactDetailItem}>
-                <MapPin className={styles.contactDetailIcon} />
-                <span>{contactInfo.address}</span>
+                <p className={styles.contactDetailLabel}>찾아오시는길</p>
+                <span className={styles.contactDetailValue}>서울시 도봉구 마들로 13길 61</span>
               </div>
               <div className={styles.contactDetailItem}>
-                <Clock className={styles.contactDetailIcon} />
-                <span>{contactInfo.hours}</span>
+                <p className={styles.contactDetailLabel}>운영시간</p>
+                <span className={styles.contactDetailValue}>평일 09:00 - 18:00</span>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-          <p>{contactInfo.copyrightText || "© 2024 요양원. All rights reserved."}</p>
-        </div>
-      </footer>
     </div>
   );
 };

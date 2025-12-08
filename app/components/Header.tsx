@@ -31,13 +31,13 @@ export default function Header() {
         <div className={styles.wrap}>
           <div className={styles.logoBox}>
             <Link href="/" className={styles.logo}>
-              <Image
+              <img
                 src="/logo.png"
-                alt="섬기미요양보호사교육원"
-                width={300}
-                height={60}
+                alt="한평생 요양보호사교육원"
+                width={420}
+                height={72}
                 className={styles.logoImage}
-                priority
+                
               />
             </Link>
           </div>
