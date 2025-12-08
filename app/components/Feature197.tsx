@@ -66,7 +66,7 @@ const Feature197 = ({ features = defaultFeatures }: Feature197Props) => {
   return (
     <section className="max-w-[1200px] mx-auto px-10 py-10 md:px-0 md:py-20">
       <div className="container mx-auto">
-        <h2 className="text-[48px] font-bold text-center mb-12">자주 묻는 질문</h2>
+        <h2 className="text-[56px] font-bold text-center mb-14 md:mb-16">자주 묻는 질문</h2>
         <div className="mb-12 flex w-full items-start justify-between gap-12">
           <div className="w-full md:w-1/2">
             <Accordion type="single" className="w-full" defaultValue="item-1">
@@ -80,13 +80,13 @@ const Feature197 = ({ features = defaultFeatures }: Feature197Props) => {
                     className="cursor-pointer py-5 !no-underline transition"
                   >
                     <h6
-                      className={`text-2xl font-semibold ${tab.id === activeTabId ? "text-foreground" : "text-muted-foreground"}`}
+                      className={`text-3xl font-semibold ${tab.id === activeTabId ? "text-foreground" : "text-muted-foreground"}`}
                     >
                       {tab.title}
                     </h6>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="mt-3 text-lg text-muted-foreground">
+                    <p className="mt-4 text-xl text-muted-foreground leading-relaxed">
                       {tab.description}
                     </p>
                     <div className="mt-4 md:hidden">
@@ -105,7 +105,7 @@ const Feature197 = ({ features = defaultFeatures }: Feature197Props) => {
             <img
               src={activeImage}
               alt="Feature preview"
-              className="aspect-[4/3] rounded-md object-contain"
+              className="aspect-[4/3] rounded-md object-cover"
             />
           </div>
         </div>

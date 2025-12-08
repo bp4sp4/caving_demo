@@ -133,28 +133,28 @@ const defaultFeature197Items: FeatureItem[] = [
   {
     id: 1,
     title: "누구나 수강할 수 있나요?",
-    image: "/class2.jpg",
+    image: "/qna01.jpeg",
     description:
       "요양보호사 자격증은 고등학교 졸업 이상이라면 누구나 수강 가능합니다.",
   },
   {
     id: 2,
     title: "나이 제한이 있나요?",
-    image: "/qna02.png",
+    image: "/qna02.jpeg",
     description:
       "공부 시작에 나이제한은 따로 없으며 실제로 60대 이후에 시작하시는 분들도 많습니다.",
   },
   {
     id: 3,
     title: "공부가 어렵지 않나요?",
-    image: "https://images.unsplash.com/photo-1536735561749-fc87494598cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/qna03.jpeg",
     description:
       "처음엔 익숙하지 않을 수 있지만, 조금만 적응하시면 대부분 합격하고 계십니다. 체계적인 교육원의 시스템과 함께 80대까지 모두 합격하셨으니, 걱정하지 않으셔도 됩니다.",
   },
   {
     id: 4,
     title: "기간은 얼마나 걸리나요?",
-    image: "https://images.unsplash.com/photo-1548324215-9133768e4094?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/qna04.jpeg",
     description:
       "기본 교육과정은 약 2-3개월 정도 소요됩니다. 주말반과 평일반에 따라 기간이 달라질 수 있어 자세한 일정은 상담을 통해 안내 도와드리겠습니다.",
   },

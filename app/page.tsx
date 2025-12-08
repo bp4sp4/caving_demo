@@ -9,13 +9,13 @@ export default function Home() {
     heroSlides: [
       {
         id: "1",
-        image: "/main_img001.jpeg",
+        image: "/main_img001.png",
         title: "고용노동부계좌제 교육기관",
         subtitle: "한평생요양보호사 교육원 ",
       },
       {
         id: "2",
-        image: "/main_img002.jpeg",
+        image: "/main_img002.png",
         title: "고용노동부계좌제 교육기관",
         subtitle: "한평생요양보호사 교육원 ",
       },

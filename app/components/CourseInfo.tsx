@@ -67,7 +67,7 @@ export default function CourseInfo() {
               </ul>
             </div>
             <div className={styles.imageContainer}>
-              <img src="/pen.png" alt="신규자반 과정" className={styles.courseImage} />
+              <img src="/newclass.png" alt="신규자반 과정" className={styles.courseImage} />
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export default function CourseInfo() {
               </ul>
             </div>
             <div className={styles.imageContainer}>
-              <img src="/banner.jpg" alt="신규자반 과정" className={styles.courseImage} />
+              <img src="/basicclass.png" alt="신규자반 과정" className={styles.courseImage} />
             </div>
           </div>
 

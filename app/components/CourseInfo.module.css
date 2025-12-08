@@ -162,7 +162,7 @@
 /* Content Section - Three Boxes */
 .contentSection {
   padding: 80px 20px;
-  background: #fafafa;
+  background: transparent;
 }
 
 .contentContainer {
@@ -174,7 +174,7 @@
 }
 
 .contentBox {
-  background: #eee;
+  background: #eee;;
   border-radius: 20px;
   padding: 40px 30px;
   width: 615px;
@@ -329,10 +329,12 @@
   .introSection,
   .contentSection {
     padding: 60px 20px;
+    background: transparent;
   }
 
   .contentBox {
     padding: 30px 20px;
+    background: transparent;
     width: 100%;
     height: auto;
     max-width: 100%;
@@ -372,10 +374,12 @@
   .introSection,
   .contentSection {
     padding: 40px 15px;
+    background: transparent;
   }
 
   .contentBox {
     padding: 25px 15px;
+    background: transparent;
     width: 100%;
     height: auto;
     max-width: 100%;

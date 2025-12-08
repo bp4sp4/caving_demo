@@ -9,6 +9,7 @@
   height: 70vh;
   width: 100%;
   overflow: hidden;
+  
 }
 
 .heroSlide {
@@ -19,7 +20,7 @@
 .heroBackground {
   position: absolute;
   inset: 0;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -508,8 +509,9 @@
 }
 
 .contactDetailPhone{
-  font-size : 32px;
+  font-size : 48px;
   font-weight: 700;
+  color: #1e293b;
 }
 
 .contactDetailItem:last-child {
