@@ -96,9 +96,12 @@ export default function SchedulePage() {
         // 서울시 도봉구 마들로 13길 61, B동 9층 906호 좌표
         const position = new window.kakao.maps.LatLng(37.6544, 127.0476);
         
+        // 모바일 여부 확인
+        const isMobile = window.innerWidth <= 768;
+        
         const options = {
           center: position,
-          level: 3,
+          level: isMobile ? 2 : 3, // 모바일에서는 더 확대
         };
 
         const map = new window.kakao.maps.Map(mapRef.current, options);
@@ -106,16 +109,23 @@ export default function SchedulePage() {
         // 마커 생성
         const marker = new window.kakao.maps.Marker({
           position: position,
+          map: map,
         });
-
-        marker.setMap(map);
 
         // 인포윈도우 생성
         const infowindow = new window.kakao.maps.InfoWindow({
           content: '<div style="padding:10px;font-size:14px;text-align:center;">B동 9층 906호</div>',
         });
 
-        infowindow.open(map, marker);
+        // 모바일에서는 인포윈도우를 자동으로 열지 않고, 마커 클릭 시 열도록
+        if (!isMobile) {
+          infowindow.open(map, marker);
+        }
+
+        // 마커 클릭 이벤트 추가
+        window.kakao.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+        });
       } catch (error) {
         console.error("카카오맵 초기화 오류:", error);
       }

@@ -20,11 +20,7 @@ export default function CourseInfo() {
             {/* 3D 일러스트 영역 - 이미지로 대체 가능 */}
           </div>
         </div>
-        <div className={styles.heroDecorations}>
-          <div className={styles.heartDecoration}></div>
-          <div className={styles.heartDecoration}></div>
-          <div className={styles.heartDecoration}></div>
-        </div>
+    
       </section>
 
 

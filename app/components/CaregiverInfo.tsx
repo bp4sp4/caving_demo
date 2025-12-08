@@ -23,11 +23,7 @@ export default function CaregiverInfo() {
        
           </div>
         </div>
-        <div className={styles.heroDecorations}>
-          <div className={styles.heartDecoration}></div>
-          <div className={styles.heartDecoration}></div>
-          <div className={styles.heartDecoration}></div>
-        </div>
+     
       </section>
 
       {/* What is a Caregiver Section */}

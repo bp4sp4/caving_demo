@@ -6,12 +6,27 @@
 /* Hero Section */
 .heroSection {
   position: relative;
-  background: linear-gradient(135deg, #f5f0e8 0%, #faf5f0 100%);
+  background-image: url('/Caregiver.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .heroDecorations {
@@ -83,17 +98,19 @@
 .heroTitle {
   font-size:44px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #ffffff;
   margin-bottom: 20px;
   line-height: 1.2;
   letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .heroDescription {
   font-size: 18px;
   letter-spacing: -1px;
   font-weight: 400;
-  color: #999;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .heroIllustration {

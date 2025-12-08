@@ -15,7 +15,7 @@
 
 .facilitiesTitle {
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: #1e293b;
 }
@@ -46,7 +46,7 @@
   height: 420px;
   padding: 50px 30px;
   background-color: #ffffff;
-  
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;

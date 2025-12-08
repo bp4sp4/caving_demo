@@ -110,7 +110,7 @@
 
 .sectionTitle {
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
   color: #1e293b;
@@ -228,7 +228,7 @@
 
 .facilitiesTitle {
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: #1e293b;
 }
@@ -375,7 +375,7 @@
 
 .consultationTitle {
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700;
   color: #1e293b;
   margin: 0;
   line-height: 1.2;
@@ -419,7 +419,7 @@
 
 .formTitle {
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 700;
   color: #1e293b;
   margin: 0 0 1rem 0;
 }
