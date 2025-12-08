@@ -507,6 +507,11 @@
   font-weight: 600;
 }
 
+.contactDetailPhone{
+  font-size : 32px;
+  font-weight: 700;
+}
+
 .contactDetailItem:last-child {
   margin-top: 6px;
 }

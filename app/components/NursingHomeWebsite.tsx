@@ -133,7 +133,7 @@ const defaultFeature197Items: FeatureItem[] = [
   {
     id: 1,
     title: "누구나 수강할 수 있나요?",
-    image: "/qna01.png",
+    image: "/class2.jpg",
     description:
       "요양보호사 자격증은 고등학교 졸업 이상이라면 누구나 수강 가능합니다.",
   },
@@ -258,8 +258,8 @@ const NursingHomeWebsite = ({
             </div>
             <div className={styles.contactDetailsGrid}>
               <div className={styles.contactDetailItem}>
-                <p className={styles.contactDetailLabel}>TEL</p>
-                <span className={styles.contactDetailValue}>02-2135-9249</span>
+                <p className={styles.contactDetailLabel}>전화번호</p>
+                <span className={styles.contactDetailPhone}>02-2135-9249</span>
               </div>
               <div className={styles.contactDetailItem}>
                 <p className={styles.contactDetailLabel}>찾아오시는길</p>
