@@ -9,22 +9,17 @@ export default function Home() {
     heroSlides: [
       {
         id: "1",
-        image: "/main_img_bg.jpg",
+        image: "/main_img001.jpeg",
         title: "고용노동부계좌제 교육기관",
         subtitle: "한평생요양보호사 교육원 ",
       },
       {
         id: "2",
-        image: "/main_img_bg.jpg",
+        image: "/main_img002.jpeg",
         title: "고용노동부계좌제 교육기관",
         subtitle: "한평생요양보호사 교육원 ",
       },
-      {
-        id: "3",
-        image: "/main_img_bg.jpg",
-        title: "고용노동부계좌제 교육기관",
-        subtitle: "한평생요양보호사 교육원 ",
-      },
+   
     ],
     aboutTitle: "요양보호사 교육원",
     aboutDescription:
