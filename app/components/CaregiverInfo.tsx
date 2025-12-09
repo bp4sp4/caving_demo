@@ -13,9 +13,8 @@ export default function CaregiverInfo() {
             
             <h1 className={styles.heroTitle}>요양보호사 안내</h1>
             <p className={styles.heroDescription}>
-              고령화 시대, 더 많은 어르신들이 일상적인 돌봄을 필요로 하고
-              있습니다.<br/> 한평생요양보호사 교육원은 전문성과 따뜻한 마음을 갖춘 요양보호사 양성을
-              통해 더 나은 사회를 함께 만들어갑니다.
+            일상적인 돌봄을 필요로 하는 어르신들이 고령화 시대에 더욱 늘어나고 있습니다.<br/>
+            저희 교육원은 따뜻한 마음과 전문성을 겸비한 요양보호사를 양성하며, 더 아름다운 사회를 함께 일궈나갑니다.
             </p>
           </div>
           <div className={styles.heroIllustration}>
@@ -31,10 +30,8 @@ export default function CaregiverInfo() {
         <div className={styles.introContainer}>
           <h2 className={styles.introTitle}>요양보호사란?</h2>
           <p className={styles.introText}>
-            요양보호사는 전문 교육기관에서 교육을 이수하고, 국가시험에 합격한
-            후 자격증을 발급받은 노인돌봄 전문 인력입니다.<br/> 거동이 불편하거나
-            일상생활이 어려운 어르신들에게 신체 활동 지원, 가사 지원 등
-            실질적인 도움을 제공하는 역할을 합니다.
+          요양보호사란 전문 교육기관의 과정을 수료하고, 국가시험 합격 및 자격증 취득을 마친 노인 돌봄 전문가를 말합니다.<br/>
+일상이나 거동이 힘든 어르신을 대상으로 가사 및 신체 활동을 지원하며, 곁에서 실질적인 도움을 드리는 역할을 수행합니다.
           </p>
         </div>
       </section>
@@ -45,10 +42,13 @@ export default function CaregiverInfo() {
           {/* Left Box */}
           <div className={styles.contentBox}>
             <h3 className={styles.boxTitle}>요양보호사가 하는 일</h3>
-            <p className={styles.boxMainText}>
-              요양보호사는 어르신이 스스로 일상을<br/> 유지할 수 있도록 옆에서 돕는
-              전문가입니다.
-            </p>
+            <div className={styles.boxMainTextWrapper}>
+              <p className={styles.boxMainText}>
+              요양보호사란 어르신을 도와 일상적인 생활을<br/>
+              유지할 수 있도록 돕는 전문가입니다.
+              </p>
+              <div className={styles.boxMainTextBorder}></div>
+            </div>
             <div className={styles.boxSubSection}>
               <div className={styles.subSectionHeader}>
                 신체활동 지원
@@ -70,17 +70,19 @@ export default function CaregiverInfo() {
           {/* Middle Box */}
           <div className={styles.contentBox}>
             <h3 className={styles.boxTitle}>요양보호사 제도가 생긴 이유</h3>
-            <p className={styles.boxMainText}>
-              노인 돌봄은 쉽게 할 수 있는 일이 아닙니다. 전문 지식과 실무
-              능력을 갖춘 인력이 필요하기에 요양보호사 제도가 도입되었습니다.
-            </p>
+            <div className={styles.boxMainTextWrapper}>
+              <p className={styles.boxMainText}>
+              어르신을 돌보는 일은 결코 가벼운 일이 아닙니다. 실무 능력과 전문 지식을 겸비한 인재가 필수적이기 때문에 요양보호사 제도가 생겼습니다.
+              </p>
+              <div className={styles.boxMainTextBorder}></div>
+            </div>
             <ul className={styles.checkList}>
               <li className={styles.specialListItem}>
-                단순 돌봄을 넘어선 체계적인 교육 기반의 전문 인력 양성
+              체계적인 교육 바탕으로 전문 인력 배출
               </li>
-              <li>고령 사회에 걸맞는 질 높은 요양서비스 제공</li>
+              <li>고령화 사회에 부합하는 고품질 요양 서비스</li>
               <li>
-                가정봉사원 및 생활지도원의 역할을 넘어서 복지 전문성 향상
+              기존 가정봉사원이나 생활지도원의 복지 전문성을 강화
               </li>
             </ul>
           </div>
@@ -90,20 +92,24 @@ export default function CaregiverInfo() {
             <h3 className={styles.boxTitle}>
               요양보호사 자격의 법적 근거
             </h3>
-            <p className={styles.boxMainText}>
-              요양보호사는 단순 민간자격이 아닙니다. 국가 공인 자격증으로
-              노인복지법의 절차에 따라 발급됩니다. (「노인복지법」 제39조의2)
-            </p>
+            <div className={styles.boxMainTextWrapper}>
+              <p className={styles.boxMainText}>
+              요양보호사는「노인복지법」제39조의2에 따라 발급되는 국가공인 자격증입니다.
+              </p>
+              <div className={styles.boxMainTextBorder}></div>
+            </div>
             <ul className={styles.checkList}>
               <li>
-                노인복지시설은 반드시 요양보호사를 배치해야 합니다.
+              노인복지시설 내 요양보호사 배치는 필수입니다.
+
               </li>
-              <li>지정된 교육기관에서 교육을 이수해야 합니다.</li>
-              <li>
-                교육 이수 후, 시·도지사로부터 자격 검정 및 자격증을 발급 받습니다.
+              <li>반드시 지정받은 교육기관에서 교육을 수료해야 합니다.
               </li>
               <li>
-                자격 관련 세부 기준은 보건복지부령에 따라 운영됩니다.
+              교육 수료 후 시·도지사의 검정을 거쳐 자격증이 교부됩니다.
+              </li>
+              <li>
+              자격에 대한 세부 사항은 보건복지부령을 따르고 있습니다.
               </li>
               <li className={styles.warningText}>
                 ※ 법 시행 전 교육 이수자는 효력이 인정되지 않습니다.

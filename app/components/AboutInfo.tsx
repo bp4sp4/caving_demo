@@ -1,9 +1,67 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import styles from "./AboutInfo.module.css";
 
 export default function AboutInfo() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const images = [
+    "/about/aboutinfo001.png",
+    "/about/aboutinfo002.png",
+    "/about/aboutinfo003.png",
+    "/about/aboutinfo004.png",
+  ];
+
+  const featureCards = [
+    {
+      id: 1,
+      header: (
+        <>
+          <span className={styles.featureHeaderHighlight}>서울시 지정서</span><br/>
+          <span className={styles.featureHeaderHighlight}>발급 교육기관</span>
+        </>
+      ),
+      description: "서울시 지정서를 발급받은<br/>  믿을 수 있는 교육기관입니다.",
+      icon: "/about/hand.png",
+      hashtag: "# 공신력 있는 기관"
+    },
+    {
+      id: 2,
+      header: <span className={styles.featureHeaderHighlight}>우수한 강사진</span>,
+      description: "실전 경험이 풍부한 강사진의 <br/>적중률 높은 수업",
+      icon: "/about/best.png",
+      hashtag: "# 베테랑 강사"
+    },
+    {
+      id: 3,
+      header: <span className={styles.featureHeaderHighlight}>쾌적한 교육환경</span>,
+      description: "쾌적한 환경에서<br/> 집중도 높은 교육 경험",
+      icon: "/about/book.png",
+      hashtag: "# 최신식 교실"
+    },
+    {
+      id: 4,
+      header: <span className={styles.featureHeaderHighlight}>합격 책임제 & 취업 지원</span>,
+      description: "무료 책임 특강 운영<br/> 취업 연계 혜택까지 제공",
+      icon: "/about/counsel.png",
+      hashtag: "# 논스톱 취업시스템"
+    }
+  ];
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
@@ -18,83 +76,90 @@ export default function AboutInfo() {
           
         </div>
          </section>
+         <section className={styles.aboutInfoSection}>
+          <div className={styles.aboutInfoContainer}>
+            <h2 className={styles.aboutInfoTitle}> &lsquo;<span className={styles.aboutInfoTitleHighlight}>왜?</span>&rsquo; 교육은 어렵게만 느껴질까?</h2>
+            {isMobile ? (
+              <div className={styles.aboutInfoSwiper}>
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  className={styles.swiperContainer}
+                >
+                  {images.map((src, index) => (
+                    <SwiperSlide key={index}>
+                      <div className={styles.swiperSlideContent}>
+                        <img src={src} alt={`교육 이미지 ${index + 1}`} />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            ) : (
+              <div className={styles.aboutInfoImage}>
+                {images.map((src, index) => (
+                  <img key={index} src={src} alt={`교육 이미지 ${index + 1}`} />
+                ))}
+              </div>
+            )}
+          </div>
+         </section>
          <section className={styles.whyChooseSection}>
            <div className={styles.whyChooseContainer}>
              <h2 className={styles.whyChooseTitle}>왜 한평생요양원을 선택해야 할까요?</h2>
              
-             <div className={styles.featuresGrid}>
-               {/* Feature Card 1 */}
-               <div className={styles.featureCard}>
-                 <div className={styles.featureHeader}>
-                   서울시 지정서<br/> 발급 교육기관
-                 </div>
-                 <p className={styles.featureDescription}>
-                   서울시 지정서를 발급받은<br/>  믿을 수 있는 교육기관입니다.
-                 </p>
-                 <div className={styles.featureIcon}>
-                   <img src="/about/hand.png" alt="" />
-                 </div>
-                 <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}># 공신력 있는 기관</span>
-                 </div>
+             {isMobile ? (
+               <div className={styles.featuresSwiper}>
+                 <Swiper
+                   spaceBetween={15}
+                   slidesPerView={1}
+                   className={styles.featuresSwiperContainer}
+                   style={{ width: '100%' }}
+                 >
+                   {featureCards.map((card) => (
+                     <SwiperSlide key={card.id}>
+                       <div className={styles.featureCard}>
+                         <div className={styles.featureHeader}>
+                           {card.header}
+                         </div>
+                         <p className={styles.featureDescription} dangerouslySetInnerHTML={{ __html: card.description }} />
+                         <div className={styles.featureIcon}>
+                           <img src={card.icon} alt="" />
+                         </div>
+                         <div className={styles.featureHashtag}>
+                           <span className={styles.hashtagText}>{card.hashtag}</span>
+                         </div>
+                       </div>
+                     </SwiperSlide>
+                   ))}
+                 </Swiper>
                </div>
-
-               {/* Feature Card 2 */}
-               <div className={styles.featureCard}>
-                 <div className={styles.featureHeader}>
-                   우수한 강사진
-                 </div>
-                 <p className={styles.featureDescription}>
-                   실전 경험이 풍부한 강사진의 <br/>적중률 높은 수업
-                 </p>
-                 <div className={styles.featureIcon}>
-                   <img src="/about/best.png" alt="" />
-                 </div>
-                 <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}># 베테랑 강사</span>
-                 </div>
+             ) : (
+               <div className={styles.featuresGrid}>
+                 {featureCards.map((card) => (
+                   <div key={card.id} className={styles.featureCard}>
+                     <div className={styles.featureHeader}>
+                       {card.header}
+                     </div>
+                     <p className={styles.featureDescription} dangerouslySetInnerHTML={{ __html: card.description }} />
+                     <div className={styles.featureIcon}>
+                       <img src={card.icon} alt="" />
+                     </div>
+                     <div className={styles.featureHashtag}>
+                       <span className={styles.hashtagText}>{card.hashtag}</span>
+                     </div>
+                   </div>
+                 ))}
                </div>
-
-               {/* Feature Card 3 */}
-               <div className={styles.featureCard}>
-                 <div className={styles.featureHeader}>
-                   쾌적한 교육환경
-                 </div>
-                 <p className={styles.featureDescription}>
-                   쾌적한 환경에서<br/> 집중도 높은 교육 경험
-                 </p>
-                 <div className={styles.featureIcon}>
-                   <img src="/about/book.png" alt="" />
-                 </div>
-                 <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}># 최신식 교실</span>
-                 </div>
-               </div>
-
-               {/* Feature Card 4 */}
-               <div className={styles.featureCard}>
-                 <div className={styles.featureHeader}>
-                   합격 책임제 & 취업 지원
-                 </div>
-                 <p className={styles.featureDescription}>
-                   무료 책임 특강 운영<br/> 취업 연계 혜택까지 제공
-                 </p>
-                 <div className={styles.featureIcon}>
-                   <img src="/about/counsel.png" alt="" />
-                 </div>
-                 <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}># 논스톱 취업시스템</span>
-                 </div>
-               </div>
-             </div>
+             )}
             
            </div>
              <div className={styles.whyChooseDescription}>
                <p>
                  수많은 교육생과 함께한 노하우로<br/>
-                 <span className={styles.whyChooseDescriptionHighlight}>&lsquo;합격의 길&rsquo;</span>을 알고,<span className={styles.mobileBreak1}><br/></span> 그 길 <span className={styles.whyChooseDescriptionHighlight}>&lsquo;끝까지 함께&rsquo;</span>합니다.
+                 <strong><span className={styles.whyChooseDescriptionHighlight}>&lsquo;합격의 길&rsquo;</span>을 알고,<span className={styles.mobileBreak1}><br/></span> 그 길 <span className={styles.whyChooseDescriptionHighlight}>&lsquo;끝까지 함께&rsquo;</span>합니다.</strong>
       </p>
-    </div>
+    </div>  
   </section>
 </div>
 );
