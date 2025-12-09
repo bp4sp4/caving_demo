@@ -188,6 +188,7 @@ const NursingHomeWebsite = ({
           modules={[Autoplay, Pagination]}
           spaceBetween={0}
           slidesPerView={1}
+          loop={finalHeroSlides.length > 1}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
