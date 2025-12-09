@@ -30,6 +30,12 @@
   color: #666666;
 }
 
+.logoText {
+  font-size: 18px;
+  font-weight: 700;
+  color: #666666;
+}
+
 .info {
   display: flex;
   flex-wrap: wrap;

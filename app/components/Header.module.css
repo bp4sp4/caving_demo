@@ -36,6 +36,13 @@
   display: block;
 }
 
+.logoText {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e1e1e;
+  white-space: nowrap;
+}
+
 .toolBox {
   display: flex;
   justify-content: flex-end;

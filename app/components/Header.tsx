@@ -4,8 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./Header.module.css";
+import { useSiteConfig } from "../contexts/SiteConfigContext";
 
-export default function Header() {
+interface HeaderProps {
+  logoPath?: string;
+  logoText?: string;
+}
+
+export default function Header({ logoPath, logoText }: HeaderProps) {
+  const config = useSiteConfig();
+  const finalLogoPath = logoPath ?? config.logoPath;
+  const finalLogoText = logoText ?? config.logoText;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -31,14 +40,25 @@ export default function Header() {
         <div className={styles.wrap}>
           <div className={styles.logoBox}>
             <Link href="/" className={styles.logo}>
-              <img
-                src="/logo.png"
-                alt="한평생 요양보호사교육원"
-                width={420}
-                height={72}
-                className={styles.logoImage}
-                
-              />
+              {finalLogoPath ? (
+                <img
+                  src={finalLogoPath}
+                  alt="한평생 요양보호사교육원"
+                  width={420}
+                  height={72}
+                  className={styles.logoImage}
+                />
+              ) : finalLogoText ? (
+                <span className={styles.logoText}>{finalLogoText}</span>
+              ) : (
+                <img
+                  src="/logo.png"
+                  alt="한평생 요양보호사교육원"
+                  width={420}
+                  height={72}
+                  className={styles.logoImage}
+                />
+              )}
             </Link>
           </div>
           <button

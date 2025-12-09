@@ -6,7 +6,7 @@
 /* Hero Section */
 .heroSection {
   position: relative;
-  background-image: url('/Caregiver1.jpg');
+  background-image: url('/caregiver/caregiver.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -248,6 +248,25 @@
   list-style-type: disc;
   position: relative;
   margin-left: 20px;
+}
+
+.contentBox:nth-child(2) .checkList li:first-child {
+  letter-spacing: -0.4px;
+}
+.contentBox:nth-child(2) .checkList li:last-child {
+  letter-spacing: -1px;
+}
+
+
+
+.contentBox:last-child .checkList li:nth-child(3) {
+  letter-spacing: -1.4px;
+  font-size: 14px;
+}
+
+.contentBox:last-child .checkList li:nth-child(4) {
+  letter-spacing: -0.3px;
+  font-size: 15px;
 }
 
 .contentBox:last-child .checkList li:last-child {
@@ -533,6 +552,55 @@
 
   .footer {
     padding: 40px 15px 30px;
+  }
+}
+
+/* FAQ Accordion Section */
+.faqSection {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.faqContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faqTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+
+
+@media (max-width: 768px) {
+  .faqSection {
+    padding: 60px 20px;
+  }
+
+  .faqTitle {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .faqAccordion :global(button) {
+    font-size: 18px !important;
+  }
+
+  .faqAccordion :global([data-radix-accordion-content]) {
+    font-size: 16px !important;
+  }
+
+  .faqAccordion :global([data-radix-accordion-content] > div) {
+    font-size: 16px !important;
+  }
+
+  .faqAccordion :global([data-radix-accordion-content] > div > div) {
+    font-size: 16px !important;
   }
 }
 

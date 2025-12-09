@@ -26,14 +26,14 @@ export default function AboutInfo() {
                {/* Feature Card 1 */}
                <div className={styles.featureCard}>
                  <div className={styles.featureHeader}>
-                   서울시 지정서 발급 교육기관
-                 </div>
-                 <div className={styles.featureIcon}>
-                   <img src="hand.png" alt="" />
+                   서울시 지정서<br/> 발급 교육기관
                  </div>
                  <p className={styles.featureDescription}>
-                   <span className={styles.featureDescriptionText}>서울시 지정서를 발급받은</span><br/> 믿을 수 있는 교육기관
+                   서울시 지정서를 발급받은<br/> <span className={styles.featureDescriptionText}> 믿을 수 있는 교육기관</span>입니다.
                  </p>
+                 <div className={styles.featureIcon}>
+                   <img src="/about/hand.png" alt="" />
+                 </div>
                  <div className={styles.featureHashtag}>
                    <span className={styles.hashtagText}>#</span> 공신력 있는 기관
                  </div>
@@ -44,12 +44,12 @@ export default function AboutInfo() {
                  <div className={styles.featureHeader}>
                    우수한 강사진
                  </div>
-                 <div className={styles.featureIcon}>
-                   <img src="best.png" alt="" />
-                 </div>
                  <p className={styles.featureDescription}>
                    실전 경험이 <span className={styles.featureDescriptionText}>풍부한 강사진</span>의 <br/><span className={styles.featureDescriptionText}>적중률 높은 수업</span>
                  </p>
+                 <div className={styles.featureIcon}>
+                   <img src="/about/best.png" alt="" />
+                 </div>
                  <div className={styles.featureHashtag}>
                    <span className={styles.hashtagText}>#</span> 베테랑 강사
                  </div>
@@ -60,15 +60,15 @@ export default function AboutInfo() {
                  <div className={styles.featureHeader}>
                    쾌적한 교육환경
                  </div>
-                 <div className={styles.featureIcon}>
-                   <img src="book.png" alt="" />
-                 </div>
                  <p className={styles.featureDescription}>
                    쾌적한 환경에서<br/> <span className={styles.featureDescriptionText}>집중도 높은 교육 경험</span>
                  </p>
-                    <div className={styles.featureHashtag}>
-                    <span className={styles.hashtagText}>#</span> 최신식 교실
-                    </div>
+                 <div className={styles.featureIcon}>
+                   <img src="/about/book.png" alt="" />
+                 </div>
+                 <div className={styles.featureHashtag}>
+                   <span className={styles.hashtagText}>#</span> 최신식 교실
+                 </div>
                </div>
 
                {/* Feature Card 4 */}
@@ -76,12 +76,12 @@ export default function AboutInfo() {
                  <div className={styles.featureHeader}>
                    합격 책임제 & 취업 지원
                  </div>
-                 <div className={styles.featureIcon}>
-                   <img src="counsel.png" alt="" />
-                 </div>
                  <p className={styles.featureDescription}>
                    무료 책임 특강 운영<br/> <span className={styles.featureDescriptionText}>취업 연계 혜택까지 제공</span>
                  </p>
+                 <div className={styles.featureIcon}>
+                   <img src="/about/counsel.png" alt="" />
+                 </div>
                  <div className={styles.featureHashtag}>
                    <span className={styles.hashtagText}>#</span> 논스톱 취업시스템
                  </div>

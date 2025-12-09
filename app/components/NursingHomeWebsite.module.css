@@ -173,7 +173,7 @@
 /* About Section */
 .aboutSection {
   position: relative;
-  background-image: url('/class.jpg');
+  background-image: url('/about/class.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -457,7 +457,7 @@
   display: flex;
   gap: 40px;
   align-items: flex-start;
-  background-image: url('/phone.png');
+  background-image: url('/main/phone.png');
   background-repeat: no-repeat;
   background-position: right center;
   background-size: contain;

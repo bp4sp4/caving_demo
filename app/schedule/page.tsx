@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { useSiteConfig } from "../contexts/SiteConfigContext";
 import styles from "./page.module.css";
 
 declare global {
@@ -11,6 +13,7 @@ declare global {
 }
 
 export default function SchedulePage() {
+  const config = useSiteConfig();
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -142,7 +145,7 @@ export default function SchedulePage() {
             <div className={styles.infoSection}>
               <h2 className={styles.infoTitle}>찾아오시는길</h2>
               <p className={styles.infoText}>
-                서울시 도봉구 마들로 13길 61(창동씨드큐브), B동 9층 906호
+                {config.contactInfo.address}
               </p>
             </div>
 
@@ -151,12 +154,14 @@ export default function SchedulePage() {
               <div className={styles.contactInfo}>
                 <div className={styles.contactItem}>
                   <span className={styles.contactLabel}>TEL</span>
-                  <span className={styles.contactValue}>02-2135-9249</span>
+                  <span className={styles.contactValue}>{config.contactInfo.phone}</span>
                 </div>
-                <div className={styles.contactItem}>
-                  <span className={styles.contactLabel}>EMAIL</span>
-                  <span className={styles.contactValue}>info@example.com</span>
-                </div>
+                {config.contactInfo.email && (
+                  <div className={styles.contactItem}>
+                    <span className={styles.contactLabel}>EMAIL</span>
+                    <span className={styles.contactValue}>{config.contactInfo.email}</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -167,6 +172,7 @@ export default function SchedulePage() {
           
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "./components/Footer";
+import SiteConfigProvider from "./components/SiteConfigProvider";
 
 export const metadata: Metadata = {
   title: "한평생요양보호사교육원",
@@ -15,8 +15,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        {children}
-        <Footer />
+        <SiteConfigProvider>
+          {children}
+        </SiteConfigProvider>
       </body>
     </html>
   );

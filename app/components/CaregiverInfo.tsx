@@ -2,6 +2,12 @@
 
 import React from "react";
 import styles from "./CaregiverInfo.module.css";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./ui/radix-accordion";
 
 export default function CaregiverInfo() {
   return (
@@ -75,7 +81,7 @@ export default function CaregiverInfo() {
               능력을 갖춘 인력이 필요하기에 요양보호사 제도가 도입되었습니다.
             </p>
             <ul className={styles.checkList}>
-              <li>
+              <li className={styles.specialListItem}>
                 단순 돌봄을 넘어선 체계적인 교육 기반의 전문 인력 양성
               </li>
               <li>고령 사회에 걸맞는 질 높은 요양서비스 제공</li>
@@ -113,6 +119,62 @@ export default function CaregiverInfo() {
         </div>
       </section>
 
+      {/* FAQ Accordion Section */}
+      <section className={styles.faqSection}>
+        <div className={styles.faqContainer}>
+          <h2 className={styles.faqTitle}>자주 묻는 질문</h2>
+          <Accordion
+            type="single"
+            collapsible
+            className={`${styles.faqAccordion} w-full max-w-4xl mx-auto`}
+          >
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-left" style={{ fontSize: '24px' }}>
+                요양보호사 자격증은 어떻게 취득하나요?
+              </AccordionTrigger>
+              <AccordionContent style={{ fontSize: '20px' }}>
+                요양보호사 자격증은 지정된 교육기관에서 교육을 이수한 후,
+                시·도지사로부터 자격 검정 및 자격증을 발급받아 취득할 수 있습니다.
+                교육과정은 이론·실기 240시간과 현장실습 80시간으로 구성되어 있습니다.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left" style={{ fontSize: '24px' }}>
+                누구나 요양보호사가 될 수 있나요?
+              </AccordionTrigger>
+              <AccordionContent style={{ fontSize: '20px' }}>
+                요양보호사 자격증은 연령, 학력, 경력 제한 없이 누구나 취득할 수 있습니다.
+                다만, 지정된 교육기관에서 필수 교육과정을 이수해야 하며,
+                교육 이수 후 자격 검정을 통과해야 자격증을 발급받을 수 있습니다.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left" style={{ fontSize: '24px' }}>
+                요양보호사는 어떤 일을 하나요?
+              </AccordionTrigger>
+              <AccordionContent style={{ fontSize: '20px' }}>
+                요양보호사는 거동이 불편하거나 일상생활이 어려운 어르신들에게
+                신체 활동 지원(식사, 목욕, 옷 입기, 이동 등)과 일상생활 지원
+                (청소, 세탁, 식사 준비 등)을 제공하는 전문 인력입니다.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left" style={{ fontSize: '24px' }}>
+                요양보호사 자격증의 법적 근거는 무엇인가요?
+              </AccordionTrigger>
+              <AccordionContent style={{ fontSize: '20px' }}>
+                요양보호사는 단순 민간자격이 아닌 국가 공인 자격증으로,
+                「노인복지법」 제39조의2에 따라 발급됩니다. 노인복지시설은
+                반드시 요양보호사를 배치해야 하며, 자격 관련 세부 기준은
+                보건복지부령에 따라 운영됩니다.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
   
     </div>
   );

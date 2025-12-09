@@ -15,6 +15,7 @@ import {
 import styles from "./NursingHomeWebsite.module.css";
 import FacilitiesGallery from "./FacilitiesGallery";
 import { Feature197, type FeatureItem } from "./Feature197";
+import { useSiteConfig } from "../contexts/SiteConfigContext";
 
 
 interface HeroSlide {
@@ -133,28 +134,28 @@ const defaultFeature197Items: FeatureItem[] = [
   {
     id: 1,
     title: "누구나 수강할 수 있나요?",
-    image: "/qna01.jpeg",
+    image: "/main/qna01.jpeg",
     description:
       "요양보호사 자격증은 고등학교 졸업 이상이라면 누구나 수강 가능합니다.",
   },
   {
     id: 2,
     title: "나이 제한이 있나요?",
-    image: "/qna02.jpeg",
+    image: "/main/qna02.jpeg",
     description:
       "공부 시작에 나이제한은 따로 없으며 실제로 60대 이후에 시작하시는 분들도 많습니다.",
   },
   {
     id: 3,
     title: "공부가 어렵지 않나요?",
-    image: "/qna03.jpeg",
+    image: "/main/qna03.jpeg",
     description:
       "처음엔 익숙하지 않을 수 있지만, 조금만 적응하시면 대부분 합격하고 계십니다. 체계적인 교육원의 시스템과 함께 80대까지 모두 합격하셨으니, 걱정하지 않으셔도 됩니다.",
   },
   {
     id: 4,
     title: "기간은 얼마나 걸리나요?",
-    image: "/qna04.jpeg",
+    image: "/main/qna04.jpeg",
     description:
       "기본 교육과정은 약 2-3개월 정도 소요됩니다. 주말반과 평일반에 따라 기간이 달라질 수 있어 자세한 일정은 상담을 통해 안내 도와드리겠습니다.",
   },
@@ -162,34 +163,33 @@ const defaultFeature197Items: FeatureItem[] = [
 ];
 
 const NursingHomeWebsite = ({
-  heroSlides = defaultHeroSlides,
+  heroSlides,
   services = defaultServices,
   facilities = defaultFacilities,
   feature197Items = defaultFeature197Items,
   aboutTitle = "우리 요양원 소개",
   aboutDescription =
     "저희 요양원은 어르신들께 가족 같은 따뜻함과 전문적인 케어를 제공하는 것을 최우선으로 생각합니다. 20년 이상의 노하우와 경험을 바탕으로 어르신들의 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.",
-  contactInfo = {
-    phone: "02-1234-5678",
-    address: "서울특별시 강남구 테헤란로 123",
-    hours: "평일 09:00 - 18:00",
-  },
+  contactInfo,
 }: NursingHomeProps) => {
+  const config = useSiteConfig();
+  const finalHeroSlides = heroSlides ?? config.heroSlides;
+  const finalContactInfo = contactInfo ?? config.contactInfo;
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setCurrentSlide((prev) => (prev + 1) % finalHeroSlides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  }, [finalHeroSlides.length]);
 
   return (
     <div className={styles.container}>
       {/* Hero Section with Slideshow */}
       <section className={styles.heroSection}>
         <AnimatePresence mode="wait">
-          {heroSlides.map(
+          {finalHeroSlides.map(
             (slide, index) =>
               index === currentSlide && (
                 <motion.div
@@ -223,7 +223,7 @@ const NursingHomeWebsite = ({
         </AnimatePresence>
         {/* Slide Indicators */}
         <div className={styles.heroIndicators}>
-          {heroSlides.map((_, index) => (
+          {finalHeroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
@@ -259,15 +259,15 @@ const NursingHomeWebsite = ({
             <div className={styles.contactDetailsGrid}>
               <div className={styles.contactDetailItem}>
                 <p className={styles.contactDetailLabel}>전화번호</p>
-                <span className={styles.contactDetailPhone}>02-2135-9249</span>
+                <span className={styles.contactDetailPhone}>{finalContactInfo.phone}</span>
               </div>
               <div className={styles.contactDetailItem}>
                 <p className={styles.contactDetailLabel}>찾아오시는길</p>
-                <span className={styles.contactDetailValue}>서울시 도봉구 마들로 13길 61</span>
+                <span className={styles.contactDetailValue}>{finalContactInfo.address}</span>
               </div>
               <div className={styles.contactDetailItem}>
                 <p className={styles.contactDetailLabel}>운영시간</p>
-                <span className={styles.contactDetailValue}>평일 09:00 - 18:00</span>
+                <span className={styles.contactDetailValue}>{finalContactInfo.hours}</span>
               </div>
             </div>
           </div>
