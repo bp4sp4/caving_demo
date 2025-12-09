@@ -82,8 +82,8 @@ export default function AboutInfo() {
             {isMobile ? (
               <div className={styles.aboutInfoSwiper}>
                 <Swiper
-                  spaceBetween={10}
-                  slidesPerView={1}
+                  spaceBetween={5}
+                  slidesPerView={1.2}
                   className={styles.swiperContainer}
                 >
                   {images.map((src, index) => (
@@ -106,13 +106,13 @@ export default function AboutInfo() {
          </section>
          <section className={styles.whyChooseSection}>
            <div className={styles.whyChooseContainer}>
-             <h2 className={styles.whyChooseTitle}>왜 한평생요양원을 선택해야 할까요?</h2>
+             <h2 className={styles.whyChooseTitle}>&lsquo;<span className={styles.whyChooseTitleHighlight}>왜</span>&rsquo; 한평생요양원을 선택해야 할까요?</h2>
              
              {isMobile ? (
                <div className={styles.featuresSwiper}>
                  <Swiper
                    spaceBetween={15}
-                   slidesPerView={1}
+                   slidesPerView={1.2}
                    className={styles.featuresSwiperContainer}
                    style={{ width: '100%' }}
                  >

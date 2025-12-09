@@ -802,8 +802,8 @@
 
 @media (max-width: 767px) {
   .heroSection {
-    min-height: 70vh;
-    height: 70vh;
+    min-height: 50vh;
+    height: 50vh;
     max-height: 600px;
   }
 
@@ -837,7 +837,7 @@
   }
 
   .heroSubtitle {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   .heroButton {
@@ -903,7 +903,7 @@
   }
 
   .consultationDescription {
-    font-size: 24px;
+    font-size: 25px;
   }
 
   .contactDetails {
@@ -958,6 +958,9 @@
   .qaAnswer p {
     font-size: 14px;
     line-height: 1.6;
+  }
+  .consultationTitleWrapper {
+    margin-bottom: 0px;
   }
 }
 

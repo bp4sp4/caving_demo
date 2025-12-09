@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import CaregiverInfo from "../components/CaregiverInfo";
 import styles from "./page.module.css";
 
@@ -11,6 +12,7 @@ export default function AboutPage() {
       <main>
         <CaregiverInfo />
       </main>
+      <Footer />
     </div>
   );
 }

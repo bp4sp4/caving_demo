@@ -380,7 +380,7 @@
 
   .contentBox {
     padding: 25px 15px;
-    background: transparent;
+    background: #eee;
     width: 100%;
     height: auto;
     max-width: 100%;

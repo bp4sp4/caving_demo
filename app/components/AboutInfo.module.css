@@ -129,6 +129,12 @@
   margin-bottom: 60px;
 }
 
+@media (max-width: 768px) {
+  .aboutInfoTitle {
+    font-size: 24px;
+  }
+}
+
 .aboutInfoTitleHighlight {
   color: #16a34a;
   font-weight: 700;
@@ -172,14 +178,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .swiperSlideContent img {
   width: 100%;
   max-width: 300px;
-  height: auto;
+  
   border-radius: 12px;
   object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .swiperSlideContent img {
+    max-width: 100%;
+    
+  }
 }
 
 @media (max-width: 768px) {
@@ -215,6 +230,10 @@
   text-align: center;
   color: #1e293b;
   margin-bottom: 60px;
+}
+
+.whyChooseTitleHighlight {
+  color: #16a34a;
 }
 
 .featuresGrid {
@@ -414,10 +433,16 @@
 
   .whyChooseSection {
     padding: 60px 20px;
+    overflow: hidden;
+  }
+
+  .aboutInfoSection {
+    padding: 60px 20px;
+    overflow: hidden;
   }
 
   .whyChooseTitle {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 40px;
   }
 

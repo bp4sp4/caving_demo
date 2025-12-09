@@ -216,6 +216,17 @@
   margin-top: auto;
 }
 
+@media (max-width: 768px) {
+  .boxMainTextWrapper {
+    min-height: 80px;
+    height: 80px;
+  }
+  
+  .boxMainTextBorder {
+    margin-top: auto;
+  }
+}
+
 .boxSubSection {
   margin-bottom: 10px;
 }

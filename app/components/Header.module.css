@@ -118,8 +118,8 @@
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -139,9 +139,6 @@
   transition: all 0.3s ease;
 }
 
-.mobileMenuButton:hover .hamburgerLine {
-  background-color: #16a34a;
-}
 
 .mobileMenuButton .closeIcon {
   font-size: 2rem;
@@ -150,9 +147,7 @@
   transition: color 0.2s;
 }
 
-.mobileMenuButton:hover .closeIcon {
-  color: #16a34a;
-}
+
 
 .mobileMenuButton.menuOpen {
   justify-content: center;
@@ -272,6 +267,11 @@
 
   .navLink:last-child {
     border-bottom: none;
+  }
+
+  .wrap {
+
+    padding: 0;
   }
 }
 
