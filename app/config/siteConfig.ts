@@ -18,6 +18,30 @@ export const siteConfig: SiteConfig = {
       subtitle: "한평생요양보호사 교육원 ",
     },
   ],
+  facilitiesSection: {
+    title: "요양보호사를 취득해야 하는 이유",
+    subtitle: "요양보호사는 어르신들의 건강과 안전을 보장하는 중요한 인력입니다.",
+    facilities: [
+      {
+        id: "1",
+        title: "재취업 1위 자격증",
+        description: "전문 교육과정으로 빠른 취업과 안정적인 수입 보장",
+        image: "/main/pen.jpg",
+      },
+      {
+        id: "2",
+        title: "가족돌봄 요양 급여",
+        description: "가족을 직접 돌볼 때 급여 지원을 받을 수 있어 경제적 부담을 줄일 수 있습니다.",
+        image: "/main/famliy.jpg",
+      },
+      {
+        id: "3",
+        title: "국비지원 가능",
+        description: "국비지원 가능으로 더 저렴한 비용으로 교육을 이수할 수 있습니다.",
+        image: "/main/noing.jpg",
+      },
+    ],
+  },
   contactInfo: {
     phone: "02-2135-9249",
     address: "서울시 도봉구 마들로 13길 61",

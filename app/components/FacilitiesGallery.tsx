@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./FacilitiesGallery.module.css";
+import { useSiteConfig } from "../contexts/SiteConfigContext";
 
 interface FacilityImage {
   id: string;
@@ -12,6 +13,8 @@ interface FacilityImage {
 
 interface FacilitiesGalleryProps {
   facilities?: FacilityImage[];
+  title?: string;
+  subtitle?: string;
 }
 
 const defaultFacilities: FacilityImage[] = [
@@ -46,8 +49,17 @@ const defaultFacilities: FacilityImage[] = [
 ];
 
 export default function FacilitiesGallery({
-  facilities = defaultFacilities,
+  facilities: propsFacilities,
+  title: propsTitle,
+  subtitle: propsSubtitle,
 }: FacilitiesGalleryProps) {
+  const config = useSiteConfig();
+  const facilitiesSection = config.facilitiesSection;
+  
+  const finalTitle = propsTitle ?? facilitiesSection?.title ?? "요양보호사를 취득해야 하는 이유";
+  const finalSubtitle = propsSubtitle ?? facilitiesSection?.subtitle ?? "요양보호사는 어르신들의 건강과 안전을 보장하는 중요한 인력입니다.";
+  const finalFacilities = propsFacilities ?? facilitiesSection?.facilities ?? defaultFacilities;
+  
   const [openCardId, setOpenCardId] = useState<string | null>(null);
 
   const handleToggleCard = (id: string) => {
@@ -58,14 +70,19 @@ export default function FacilitiesGallery({
     <section className={styles.facilitiesSection}>
       <div className={styles.facilitiesHeader}>
         <div className={styles.facilitiesHeaderContent}>
-          <h2 className={styles.facilitiesTitle}>요양보호사를 취득해야 하는 이유</h2>
+          <h2 className={styles.facilitiesTitle}>{finalTitle}</h2>
           <p className={styles.facilitiesSubtitle}>
-              요양보호사는 어르신들의 건강과 안전을 보장하는<span className={styles.mobileBreak}><br/></span> 중요한 인력입니다.
+            {finalSubtitle.split('<br/>').map((part, index, array) => (
+              <React.Fragment key={index}>
+                {part}
+                {index < array.length - 1 && <span className={styles.mobileBreak}><br/></span>}
+              </React.Fragment>
+            ))}
           </p>
         </div>
       </div>
       <div className={styles.facilitiesGrid}>
-        {facilities.map((facility) => {
+        {finalFacilities.map((facility) => {
           const isOpen = openCardId === facility.id;
           return (
             <div 

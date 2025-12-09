@@ -16,10 +16,24 @@ export interface HeroSlide {
   subtitle: string;
 }
 
+export interface Facility {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface FacilitiesSection {
+  title: string;
+  subtitle: string;
+  facilities: Facility[];
+}
+
 export interface SiteConfig {
   logoPath?: string;
   logoText?: string;
   heroSlides: HeroSlide[];
+  facilitiesSection?: FacilitiesSection;
   contactInfo: ContactInfo;
   copyrightText?: string;
 }

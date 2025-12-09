@@ -241,7 +241,7 @@ const NursingHomeWebsite = ({
       
 
       {/* Facilities Gallery */}
-      <FacilitiesGallery facilities={facilities} />
+      <FacilitiesGallery />
 
       {/* Feature197 Accordion Section (자주 묻는 질문) */}
       <Feature197 features={feature197Items} />
