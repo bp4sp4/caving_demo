@@ -19,12 +19,9 @@ export default function AboutInfo() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const images = [
-    "/about/aboutinfo001.png",
-    "/about/aboutinfo002.png",
-    "/about/aboutinfo003.png",
-    "/about/aboutinfo004.png",
-  ];
+  const images = isMobile
+    ? ["/about/banner__mobile.png"]
+    : ["/about/banner.png"];
 
   const featureCards = [
     {
@@ -78,30 +75,10 @@ export default function AboutInfo() {
          </section>
          <section className={styles.aboutInfoSection}>
           <div className={styles.aboutInfoContainer}>
-            <h2 className={styles.aboutInfoTitle}> &lsquo;<span className={styles.aboutInfoTitleHighlight}>왜?</span>&rsquo; 교육은 어렵게만 느껴질까?</h2>
-            {isMobile ? (
-              <div className={styles.aboutInfoSwiper}>
-                <Swiper
-                  spaceBetween={5}
-                  slidesPerView={1.2}
-                  className={styles.swiperContainer}
-                >
-                  {images.map((src, index) => (
-                    <SwiperSlide key={index}>
-                      <div className={styles.swiperSlideContent}>
-                        <img src={src} alt={`교육 이미지 ${index + 1}`} />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            ) : (
-              <div className={styles.aboutInfoImage}>
-                {images.map((src, index) => (
-                  <img key={index} src={src} alt={`교육 이미지 ${index + 1}`} />
-                ))}
-              </div>
-            )}
+            <h2 className={styles.aboutInfoTitle}> &lsquo;<span className={styles.aboutInfoTitleHighlight}>왜?</span>&rsquo; 교육은 어렵게만 느껴질까요?</h2>
+            <div className={styles.aboutInfoImage}>
+              <img src={images[0]} alt="교육 소개 이미지" />
+            </div>
           </div>
          </section>
          <section className={styles.whyChooseSection}>
