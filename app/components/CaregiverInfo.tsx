@@ -1,9 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./CaregiverInfo.module.css";
 
 export default function CaregiverInfo() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const heroDescription =
+    "일상적인 돌봄을 필요로 하는 어르신들이\n 고령화 시대에 더욱 늘어나고 있습니다.<br/>저희 교육원은 따뜻한 마음과 전문성을 겸비한 요양보호사를\n 양성하며, 더 아름다운 사회를 함께 일궈나갑니다.";
+  const mobileHeroDescription = heroDescription.replace(/<br\s*\/?>/g, "\n");
+
+  const introDescription =
+    "요양보호사란 전문 교육기관의 과정을 수료하고,\n 국가시험 합격 및 자격증 취득을 마친\n 노인 돌봄 전문가를 말합니다.<br/>일상이나 거동이 힘든 어르신을 대상으로\n 가사 및 신체 활동을 지원하며,\n 곁에서 실질적인 도움을 드리는 역할을 수행합니다.";
+  const mobileIntroDescription = introDescription.replace(/<br\s*\/?>/g, "\n");
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
@@ -12,15 +29,18 @@ export default function CaregiverInfo() {
           <div className={styles.heroText}>
             
             <h1 className={styles.heroTitle}>요양보호사 안내</h1>
-            <p className={styles.heroDescription}>
-            일상적인 돌봄을 필요로 하는 어르신들이 고령화 시대에 더욱 늘어나고 있습니다.<br/>
-            저희 교육원은 따뜻한 마음과 전문성을 겸비한 요양보호사를 양성하며, 더 아름다운 사회를 함께 일궈나갑니다.
-            </p>
+            {isMobile ? (
+              <p className={`${styles.heroDescription} text-pre-line`}>
+                {mobileHeroDescription}
+              </p>
+            ) : (
+              <p
+                className={styles.heroDescription}
+                dangerouslySetInnerHTML={{ __html: heroDescription }}
+              />
+            )}
           </div>
-          <div className={styles.heroIllustration}>
-            {/* 3D 일러스트 영역 - 이미지로 대체 가능 */}
-       
-          </div>
+        
         </div>
      
       </section>
@@ -29,10 +49,16 @@ export default function CaregiverInfo() {
       <section className={styles.introSection}>
         <div className={styles.introContainer}>
           <h2 className={styles.introTitle}>요양보호사란?</h2>
-          <p className={styles.introText}>
-          요양보호사란 전문 교육기관의 과정을 수료하고, 국가시험 합격 및 자격증 취득을 마친 노인 돌봄 전문가를 말합니다.<br/>
-일상이나 거동이 힘든 어르신을 대상으로 가사 및 신체 활동을 지원하며, 곁에서 실질적인 도움을 드리는 역할을 수행합니다.
-          </p>
+          {isMobile ? (
+            <p className={`${styles.introText} text-pre-line`}>
+              {mobileIntroDescription}
+            </p>
+          ) : (
+            <p
+              className={styles.introText}
+              dangerouslySetInnerHTML={{ __html: introDescription }}
+            />
+          )}
         </div>
       </section>
 

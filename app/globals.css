@@ -11,6 +11,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.text-pre-line {
+  white-space: pre-line;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }

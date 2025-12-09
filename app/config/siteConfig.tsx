@@ -119,8 +119,8 @@ export const siteConfig: SiteConfig = {
     },
   ],
   facilitiesSection: {
-    title: "요양보호사를 취득해야 하는 이유",
-    subtitle: "요양보호사는 어르신들의 건강과 안전을 보장하는 중요한 인력입니다.",
+    title: "요양보호사를\n취득해야 하는 이유",
+    subtitle: "요양보호사는 어르신들의 건강과 안전을\n보장하는 중요한 인력입니다.",
     facilities: [
       {
         id: "1",

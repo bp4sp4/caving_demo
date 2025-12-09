@@ -59,6 +59,14 @@ export default function AboutInfo() {
     }
   ];
 
+  const heroDescriptionText =
+    "저희 요양원은 어르신들께 가족 같은 따뜻함과\n 전문적인 케어를 제공하는 것을 최우선으로 생각합니다.<br/>20년 이상의 노하우와 경험을 바탕으로 어르신들의\n 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.";
+  const mobileDescription = heroDescriptionText.replace(/<br\s*\/?>/g, "\n");
+  const desktopDescriptionHtml = heroDescriptionText.replace(/\n/g, " ");
+
+  const mobileAboutTitle = "‘왜?’ 교육은 어렵게만\n느껴질까요?";
+  const mobileWhyChooseTitle = "‘왜’ 한평생요양원을\n 선택해야 할까요?";
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
@@ -66,16 +74,29 @@ export default function AboutInfo() {
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
             <h1 className={styles.heroTitle}>요양보호사 교육원</h1>
-            <p className={styles.heroDescription}>
-              저희 요양원은 어르신들께 가족 같은 따뜻함과 전문적인 케어를 제공하는 것을 최우선으로 생각합니다.<br/> 20년 이상의 노하우와 경험을 바탕으로 어르신들의 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.
-            </p>
+            {isMobile ? (
+              <p className={styles.heroDescription}>{mobileDescription}</p>
+            ) : (
+              <p
+                className={styles.heroDescription}
+                dangerouslySetInnerHTML={{ __html: desktopDescriptionHtml }}
+              />
+            )}
           </div>
           
         </div>
          </section>
          <section className={styles.aboutInfoSection}>
           <div className={styles.aboutInfoContainer}>
-            <h2 className={styles.aboutInfoTitle}> &lsquo;<span className={styles.aboutInfoTitleHighlight}>왜?</span>&rsquo; 교육은 어렵게만 느껴질까요?</h2>
+          {isMobile ? (
+            <h2 className={`${styles.aboutInfoTitle} text-pre-line`}>
+              {mobileAboutTitle}
+            </h2>
+          ) : (
+            <h2 className={styles.aboutInfoTitle}>
+              &lsquo;<span className={styles.aboutInfoTitleHighlight}>왜?</span>&rsquo; 교육은 어렵게만 느껴질까요?
+            </h2>
+          )}
             <div className={styles.aboutInfoImage}>
               <img src={images[0]} alt="교육 소개 이미지" />
             </div>
@@ -83,7 +104,15 @@ export default function AboutInfo() {
          </section>
          <section className={styles.whyChooseSection}>
            <div className={styles.whyChooseContainer}>
-             <h2 className={styles.whyChooseTitle}>&lsquo;<span className={styles.whyChooseTitleHighlight}>왜</span>&rsquo; 한평생요양원을 선택해야 할까요?</h2>
+            {isMobile ? (
+              <h2 className={`${styles.whyChooseTitle} text-pre-line`}>
+                {mobileWhyChooseTitle}
+              </h2>
+            ) : (
+              <h2 className={styles.whyChooseTitle}>
+                &lsquo;<span className={styles.whyChooseTitleHighlight}>왜</span>&rsquo; 한평생요양원을 선택해야 할까요?
+              </h2>
+            )}
              
              {isMobile ? (
                <div className={styles.featuresSwiper}>

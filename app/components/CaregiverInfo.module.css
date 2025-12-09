@@ -574,5 +574,34 @@
   .footer {
     padding: 40px 15px 30px;
   }
+
+  .checkList li {
+    font-size: 13px;
+   
+  }
+
+
+
+.contentBox:last-child .checkList li:nth-child(3) {
+  
+  font-size: 13px;
+}
+
+.contentBox:last-child .checkList li:nth-child(4) {
+  
+  font-size: 13px;
+}
+
+.contentBox:last-child .checkList li:last-child {
+  text-align: left;
+  list-style-type: none;
+  margin-left: 5px;
+}
+
+.subSectionList li {
+  font-size: 13px;
+
+}
+
 }
 

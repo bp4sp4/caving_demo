@@ -27,6 +27,16 @@
   font-size: 18px;
 }
 
+@media (max-width: 768px) {
+  .facilitiesTitle {
+    white-space: pre-line;
+  }
+
+  .facilitiesSubtitle {
+    white-space: pre-line;
+  }
+}
+
 .mobileBreak {
   display: none;
 }
