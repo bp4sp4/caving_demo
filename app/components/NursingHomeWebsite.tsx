@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import {
   ArrowLeft,
   ArrowRight,
@@ -177,50 +180,44 @@ const NursingHomeWebsite = ({
   const finalContactInfo = contactInfo ?? config.contactInfo;
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % finalHeroSlides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [finalHeroSlides.length]);
-
   return (
     <div className={styles.container}>
       {/* Hero Section with Slideshow */}
       <section className={styles.heroSection}>
-        <AnimatePresence mode="wait">
-          {finalHeroSlides.map(
-            (slide, index) =>
-              index === currentSlide && (
-                <motion.div
-                  key={slide.id}
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 1 }}
-                  className={styles.heroSlide}
-                >
-                  <div
-                    className={styles.heroBackground}
-                    style={{ backgroundImage: `url(${slide.image})` }}
-                  />
-                  <div className={styles.heroOverlay} />
-                  <div className={styles.heroContent}>
-                    <motion.div
-                      initial={{ y: 30, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.3, duration: 0.8 }}
-                      className={styles.heroTextContainer}
-                    >
-                      <h1 className={styles.heroTitle}>{slide.title}</h1>
-                      <p className={styles.heroSubtitle}>{slide.subtitle}</p>
-                      <button className={styles.heroButton}> 더 알아보기 </button>
-                    </motion.div>
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={0}
+          slidesPerView={1}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
+          className={styles.heroSwiper}
+          allowTouchMove={true}
+        >
+          {finalHeroSlides.map((slide) => (
+            <SwiperSlide key={slide.id}>
+              <div className={styles.heroSlide}>
+                <div
+                  className={styles.heroBackground}
+                  style={{ backgroundImage: `url(${slide.image})` }}
+                />
+                <div className={styles.heroOverlay} />
+                <div className={styles.heroContent}>
+                  <div className={styles.heroTextContainer}>
+                    <h1 className={styles.heroTitle}>{slide.title}</h1>
+                    <p className={styles.heroSubtitle}>{slide.subtitle}</p>
+                    <button className={styles.heroButton}> 더 알아보기 </button>
                   </div>
-                </motion.div>
-              )
-          )}
-        </AnimatePresence>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
         {/* Slide Indicators */}
         <div className={styles.heroIndicators}>
           {finalHeroSlides.map((_, index) => (
