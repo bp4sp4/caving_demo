@@ -148,14 +148,14 @@ const defaultFeature197Items: FeatureItem[] = [
   {
     id: 3,
     title: "공부가 어렵지 않나요?",
-    image: "/main/qna03.jpeg",
+    image: "/main/qna04.jpeg",
     description:
       "처음엔 익숙하지 않을 수 있지만, 조금만 적응하시면 대부분 합격하고 계십니다. 체계적인 교육원의 시스템과 함께 80대까지 모두 합격하셨으니, 걱정하지 않으셔도 됩니다.",
   },
   {
     id: 4,
     title: "기간은 얼마나 걸리나요?",
-    image: "/main/qna04.jpeg",
+    image: "/main/qna03.jpeg",
     description:
       "기본 교육과정은 약 2-3개월 정도 소요됩니다. 주말반과 평일반에 따라 기간이 달라질 수 있어 자세한 일정은 상담을 통해 안내 도와드리겠습니다.",
   },

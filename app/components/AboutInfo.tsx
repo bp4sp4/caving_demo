@@ -29,13 +29,13 @@ export default function AboutInfo() {
                    서울시 지정서<br/> 발급 교육기관
                  </div>
                  <p className={styles.featureDescription}>
-                   서울시 지정서를 발급받은<br/> <span className={styles.featureDescriptionText}> 믿을 수 있는 교육기관</span>입니다.
+                   서울시 지정서를 발급받은<br/>  믿을 수 있는 교육기관입니다.
                  </p>
                  <div className={styles.featureIcon}>
                    <img src="/about/hand.png" alt="" />
                  </div>
                  <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}>#</span> 공신력 있는 기관
+                   <span className={styles.hashtagText}># 공신력 있는 기관</span>
                  </div>
                </div>
 
@@ -45,13 +45,13 @@ export default function AboutInfo() {
                    우수한 강사진
                  </div>
                  <p className={styles.featureDescription}>
-                   실전 경험이 <span className={styles.featureDescriptionText}>풍부한 강사진</span>의 <br/><span className={styles.featureDescriptionText}>적중률 높은 수업</span>
+                   실전 경험이 풍부한 강사진의 <br/>적중률 높은 수업
                  </p>
                  <div className={styles.featureIcon}>
                    <img src="/about/best.png" alt="" />
                  </div>
                  <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}>#</span> 베테랑 강사
+                   <span className={styles.hashtagText}># 베테랑 강사</span>
                  </div>
                </div>
 
@@ -61,13 +61,13 @@ export default function AboutInfo() {
                    쾌적한 교육환경
                  </div>
                  <p className={styles.featureDescription}>
-                   쾌적한 환경에서<br/> <span className={styles.featureDescriptionText}>집중도 높은 교육 경험</span>
+                   쾌적한 환경에서<br/> 집중도 높은 교육 경험
                  </p>
                  <div className={styles.featureIcon}>
                    <img src="/about/book.png" alt="" />
                  </div>
                  <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}>#</span> 최신식 교실
+                   <span className={styles.hashtagText}># 최신식 교실</span>
                  </div>
                </div>
 
@@ -77,13 +77,13 @@ export default function AboutInfo() {
                    합격 책임제 & 취업 지원
                  </div>
                  <p className={styles.featureDescription}>
-                   무료 책임 특강 운영<br/> <span className={styles.featureDescriptionText}>취업 연계 혜택까지 제공</span>
+                   무료 책임 특강 운영<br/> 취업 연계 혜택까지 제공
                  </p>
                  <div className={styles.featureIcon}>
                    <img src="/about/counsel.png" alt="" />
                  </div>
                  <div className={styles.featureHashtag}>
-                   <span className={styles.hashtagText}>#</span> 논스톱 취업시스템
+                   <span className={styles.hashtagText}># 논스톱 취업시스템</span>
                  </div>
                </div>
              </div>
