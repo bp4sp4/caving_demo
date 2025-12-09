@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useSiteConfig } from "../contexts/SiteConfigContext";
+import { useSiteConfig } from "../config/siteConfig";
 import styles from "./page.module.css";
 
 declare global {
@@ -15,6 +15,12 @@ declare global {
 export default function SchedulePage() {
   const config = useSiteConfig();
   const mapRef = useRef<HTMLDivElement>(null);
+  const mapLocation = config.mapLocation || {
+    address: config.contactInfo.address,
+    latitude: 37.6544,
+    longitude: 127.0476,
+    detail: "B동 9층 906호",
+  };
 
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_KAKAO_MAP_API_KEY;
@@ -54,9 +60,9 @@ export default function SchedulePage() {
       return;
     }
 
-    // 스크립트 로드 (autoload=false 사용)
+    // 스크립트 로드 (autoload=false 사용, services 라이브러리 포함)
     const script = document.createElement("script");
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false&libraries=services`;
     
     script.onerror = (error) => {
       console.error("카카오맵 스크립트 로드 실패:", error);
@@ -96,38 +102,67 @@ export default function SchedulePage() {
       }
 
       try {
-        // 서울시 도봉구 마들로 13길 61, B동 9층 906호 좌표
-        const position = new window.kakao.maps.LatLng(37.6544, 127.0476);
-        
-        // 모바일 여부 확인
+        const fallbackPosition = new window.kakao.maps.LatLng(
+          mapLocation.latitude,
+          mapLocation.longitude
+        );
+
         const isMobile = window.innerWidth <= 768;
-        
-        const options = {
-          center: position,
-          level: isMobile ? 2 : 3, // 모바일에서는 더 확대
+
+        const renderMap = (coords: any) => {
+          const options = {
+            center: coords,
+            level: isMobile ? 2 : 3, // 모바일에서는 더 확대
+          };
+
+          const map = new window.kakao.maps.Map(mapRef.current, options);
+
+          // 마커 생성
+          const marker = new window.kakao.maps.Marker({
+            position: coords,
+            map: map,
+          });
+
+          // 인포윈도우 생성
+          const infowindowContent = mapLocation.detail
+            ? `<div style="padding:10px;font-size:14px;text-align:center;">${mapLocation.detail}</div>`
+            : `<div style="padding:10px;font-size:14px;text-align:center;">${mapLocation.address}</div>`;
+          
+          const infowindow = new window.kakao.maps.InfoWindow({
+            content: infowindowContent,
+          });
+
+          // 모바일에서는 인포윈도우를 자동으로 열지 않고, 마커 클릭 시 열도록
+          if (!isMobile) {
+            infowindow.open(map, marker);
+          }
+
+          // 마커 클릭 이벤트 추가
+          window.kakao.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+          });
         };
 
-        const map = new window.kakao.maps.Map(mapRef.current, options);
-
-        // 마커 생성
-        const marker = new window.kakao.maps.Marker({
-          position: position,
-          map: map,
-        });
-
-        // 인포윈도우 생성
-        const infowindow = new window.kakao.maps.InfoWindow({
-          content: '<div style="padding:10px;font-size:14px;text-align:center;">B동 9층 906호</div>',
-        });
-
-        // 모바일에서는 인포윈도우를 자동으로 열지 않고, 마커 클릭 시 열도록
-        if (!isMobile) {
-          infowindow.open(map, marker);
+        // services 라이브러리가 없을 때 대비
+        if (!window.kakao.maps.services || !window.kakao.maps.services.Geocoder) {
+          console.warn("services 라이브러리를 찾을 수 없어 fallback 좌표를 사용합니다.");
+          renderMap(fallbackPosition);
+          return;
         }
 
-        // 마커 클릭 이벤트 추가
-        window.kakao.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map, marker);
+        // 주소로 좌표 검색 (Geocoder 사용)
+        const geocoder = new window.kakao.maps.services.Geocoder();
+        
+        geocoder.addressSearch(mapLocation.address, function(result: any, status: any) {
+          if (status === window.kakao.maps.services.Status.OK) {
+            // 검색 결과의 좌표 사용
+            const coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
+            renderMap(coords);
+          } else {
+            // 주소 검색 실패 시 siteConfig의 좌표 사용
+            console.warn("주소 검색 실패, 설정된 좌표 사용:", status);
+            renderMap(fallbackPosition);
+          }
         });
       } catch (error) {
         console.error("카카오맵 초기화 오류:", error);

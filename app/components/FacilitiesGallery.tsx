@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./FacilitiesGallery.module.css";
-import { useSiteConfig } from "../contexts/SiteConfigContext";
+import { useSiteConfig } from "../config/siteConfig";
 
 interface FacilityImage {
   id: string;

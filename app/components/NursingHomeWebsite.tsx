@@ -15,7 +15,7 @@ import {
 import styles from "./NursingHomeWebsite.module.css";
 import FacilitiesGallery from "./FacilitiesGallery";
 import { Feature197, type FeatureItem } from "./Feature197";
-import { useSiteConfig } from "../contexts/SiteConfigContext";
+import { useSiteConfig } from "../config/siteConfig";
 
 
 interface HeroSlide {

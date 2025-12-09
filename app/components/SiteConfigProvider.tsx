@@ -1,7 +1,6 @@
 "use client";
 
-import { SiteConfigProvider as Provider } from "../contexts/SiteConfigContext";
-import { siteConfig } from "../config/siteConfig";
+import { SiteConfigProvider as Provider, siteConfig } from "../config/siteConfig";
 
 export default function SiteConfigProvider({
   children,

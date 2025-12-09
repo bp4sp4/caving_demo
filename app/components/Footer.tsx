@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./Footer.module.css";
-import { useSiteConfig } from "../contexts/SiteConfigContext";
+import { useSiteConfig } from "../config/siteConfig";
 
 interface FooterProps {
   logoPath?: string;

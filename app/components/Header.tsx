@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./Header.module.css";
-import { useSiteConfig } from "../contexts/SiteConfigContext";
+import { useSiteConfig } from "../config/siteConfig";
 
 interface HeaderProps {
   logoPath?: string;
