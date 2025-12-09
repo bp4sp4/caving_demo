@@ -292,8 +292,8 @@
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 1rem 7rem;
-  font-size: 1rem;
+  padding: 1.2rem 7rem;
+  font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
@@ -903,7 +903,9 @@
   }
 
   .consultationContainer {
-    grid-template-columns: 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 3rem;
   }
 

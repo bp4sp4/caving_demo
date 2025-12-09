@@ -26,79 +26,85 @@ export default function Header({ logoPath, logoText }: HeaderProps) {
   };
 
   return (
-    <header className={styles.header} role="banner">
+    <>
+      {/* 로그인/회원가입 - 웹에서만 표시, sticky 아님 (요청으로 주석 처리)
+      <div className={styles.toolBox}>
         <div className={styles.wrap}>
-          <div className={styles.toolBox}>
-            <Link href="/login" className={styles.toolLink}>
-              로그인
-            </Link>
-            <Link href="/signup" className={styles.toolLink}>
-              회원가입
-            </Link>
-          </div>
-      <div id="Top" className={styles.top}>
-        <div className={styles.wrap}>
-          <div className={styles.logoBox}>
-            <Link href="/" className={styles.logo}>
-              {finalLogoPath ? (
-                <img
-                  src={finalLogoPath}
-                  alt="한평생 요양보호사교육원"
-                  width={420}
-                  height={72}
-                  className={styles.logoImage}
-                />
-              ) : finalLogoText ? (
-                <span className={styles.logoText}>{finalLogoText}</span>
+          <Link href="/login" className={styles.toolLink}>
+            로그인
+          </Link>
+          <Link href="/signup" className={styles.toolLink}>
+            회원가입
+          </Link>
+        </div>
+      </div>
+      */}
+      
+      {/* Sticky 헤더 영역 */}
+      <header className={styles.header} role="banner">
+        <div id="Top" className={styles.top}>
+          <div className={styles.wrap}>
+            <div className={styles.logoBox}>
+              <Link href="/" className={styles.logo}>
+                {finalLogoPath ? (
+                  <img
+                    src={finalLogoPath}
+                    alt="한평생 요양보호사교육원"
+                    width={420}
+                    height={72}
+                    className={styles.logoImage}
+                  />
+                ) : finalLogoText ? (
+                  <span className={styles.logoText}>{finalLogoText}</span>
+                ) : (
+                  <img
+                    src="/logo.png"
+                    alt="한평생 요양보호사교육원"
+                    width={420}
+                    height={72}
+                    className={styles.logoImage}
+                  />
+                )}
+              </Link>
+            </div>
+            <button
+              className={`${styles.mobileMenuButton} ${isMenuOpen ? styles.menuOpen : ''}`}
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? (
+                <span className={styles.closeIcon}>×</span>
               ) : (
-                <img
-                  src="/logo.png"
-                  alt="한평생 요양보호사교육원"
-                  width={420}
-                  height={72}
-                  className={styles.logoImage}
-                />
+                <>
+                  <span className={styles.hamburgerLine}></span>
+                  <span className={styles.hamburgerLine}></span>
+                  <span className={styles.hamburgerLine}></span>
+                </>
               )}
-            </Link>
+            </button>
           </div>
-          <button
-            className={`${styles.mobileMenuButton} ${isMenuOpen ? styles.menuOpen : ''}`}
-            onClick={toggleMenu}
-            aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? (
-              <span className={styles.closeIcon}>×</span>
-            ) : (
-              <>
-                <span className={styles.hamburgerLine}></span>
-                <span className={styles.hamburgerLine}></span>
-                <span className={styles.hamburgerLine}></span>
-              </>
-            )}
-          </button>
         </div>
-      </div>
-      </div>
-      <div id="Top_menu" className={`${styles.topMenu} ${isMenuOpen ? styles.menuOpen : ''}`}>
-        <div className={styles.wrap}>
-          <nav className={styles.nav} aria-label="주요 메뉴">
-            <Link href="/about" className={styles.navLink} onClick={closeMenu}>
-              교육원소개
-            </Link>
-            <Link href="/schedule" className={styles.navLink} onClick={closeMenu}>
-              오시는길
-            </Link>
-            <Link href="/Caregiver" className={styles.navLink} onClick={closeMenu}>
-              요양보호사
-            </Link>
-            <Link href="/cbt" className={styles.navLink} onClick={closeMenu}>
-              교육과정
-            </Link>
-          </nav>
+        <div id="Top_menu" className={`${styles.topMenu} ${isMenuOpen ? styles.menuOpen : ''}`}>
+          <div className={styles.wrap}>
+            <nav className={styles.nav} aria-label="주요 메뉴">
+              <Link href="/about" className={styles.navLink} onClick={closeMenu}>
+                교육원소개
+              </Link>
+              <Link href="/schedule" className={styles.navLink} onClick={closeMenu}>
+                오시는길
+              </Link>
+              <Link href="/Caregiver" className={styles.navLink} onClick={closeMenu}>
+                요양보호사
+              </Link>
+              <Link href="/cbt" className={styles.navLink} onClick={closeMenu}>
+                교육과정
+              </Link>
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 
