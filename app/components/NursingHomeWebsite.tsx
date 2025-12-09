@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -175,6 +176,7 @@ const NursingHomeWebsite = ({
     "저희 요양원은 어르신들께 가족 같은 따뜻함과 전문적인 케어를 제공하는 것을 최우선으로 생각합니다. 20년 이상의 노하우와 경험을 바탕으로 어르신들의 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.",
   contactInfo,
 }: NursingHomeProps) => {
+  const router = useRouter();
   const config = useSiteConfig();
   const finalHeroSlides = heroSlides ?? config.heroSlides;
   const finalContactInfo = contactInfo ?? config.contactInfo;
@@ -212,7 +214,12 @@ const NursingHomeWebsite = ({
                   <div className={styles.heroTextContainer}>
                     <h1 className={styles.heroTitle}>{slide.title}</h1>
                     <p className={styles.heroSubtitle}>{slide.subtitle}</p>
-                    <button className={styles.heroButton}> 더 알아보기 </button>
+                    <button
+                      className={styles.heroButton}
+                      onClick={() => router.push("/about")}
+                    >
+                      더 알아보기
+                    </button>
                   </div>
                 </div>
               </div>
