@@ -64,8 +64,20 @@ export default function AboutInfo() {
   const mobileDescription = heroDescriptionText.replace(/<br\s*\/?>/g, "\n");
   const desktopDescriptionHtml = heroDescriptionText.replace(/\n/g, " ");
 
-  const mobileAboutTitle = "‘왜?’ 교육은 어렵게만\n느껴질까요?";
-  const mobileWhyChooseTitle = "‘왜’ 한평생요양원을\n 선택해야 할까요?";
+  const mobileAboutTitle = (
+    <>
+      &lsquo;<span className={styles.aboutInfoTitleHighlight}>왜?</span>&rsquo; 교육은 어렵게만
+      <br />
+      느껴질까요?
+    </>
+  );
+  const mobileWhyChooseTitle = (
+    <>
+      &lsquo;<span className={styles.whyChooseTitleHighlight}>왜</span>&rsquo;
+  
+      한평생요양원을    <br /> 선택해야 할까요?
+    </>
+  );
 
   return (
     <div className={styles.container}>
@@ -89,9 +101,7 @@ export default function AboutInfo() {
          <section className={styles.aboutInfoSection}>
           <div className={styles.aboutInfoContainer}>
           {isMobile ? (
-            <h2 className={`${styles.aboutInfoTitle} text-pre-line`}>
-              {mobileAboutTitle}
-            </h2>
+            <h2 className={styles.aboutInfoTitle}>{mobileAboutTitle}</h2>
           ) : (
             <h2 className={styles.aboutInfoTitle}>
               &lsquo;<span className={styles.aboutInfoTitleHighlight}>왜?</span>&rsquo; 교육은 어렵게만 느껴질까요?
@@ -105,9 +115,7 @@ export default function AboutInfo() {
          <section className={styles.whyChooseSection}>
            <div className={styles.whyChooseContainer}>
             {isMobile ? (
-              <h2 className={`${styles.whyChooseTitle} text-pre-line`}>
-                {mobileWhyChooseTitle}
-              </h2>
+              <h2 className={styles.whyChooseTitle}>{mobileWhyChooseTitle}</h2>
             ) : (
               <h2 className={styles.whyChooseTitle}>
                 &lsquo;<span className={styles.whyChooseTitleHighlight}>왜</span>&rsquo; 한평생요양원을 선택해야 할까요?

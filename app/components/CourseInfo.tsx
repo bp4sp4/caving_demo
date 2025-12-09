@@ -32,7 +32,7 @@ export default function CourseInfo() {
           <div className={styles.contentBox}>
             <h3 className={styles.boxTitle}>신규자반 과정</h3>
             <p className={styles.boxMainText}>
-              요양보호사 자격증을 처음 준비하시는 분을 위한 기본 과정입니다.
+              요양보호사 자격증을 처음<br/> 준비하시는 분을 위한 기본 과정입니다.
             </p>
             <div className={styles.boxSubSection}>
               <div className={styles.subSectionHeader}>
@@ -75,7 +75,7 @@ export default function CourseInfo() {
           <div className={styles.contentBox}>
             <h3 className={styles.boxTitle}>자격증 소지자반 과정</h3>
             <p className={styles.boxMainText}>
-              실무 현장에서 바로 활용할 수 있는
+              실무 현장에서 바로 활용할 수 있는<br/>
               전문 지식과 기술을 습득할 수 있습니다.
             </p>
             <div className={styles.boxSubSection}>
