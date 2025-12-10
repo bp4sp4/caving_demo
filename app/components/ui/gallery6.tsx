@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 import { Button } from "./button";
 import {
@@ -90,39 +90,36 @@ const Gallery6 = ({
 
     carouselApi.on("select", updateSelection);
 
-    // 자동 슬라이드
-    const autoplayInterval = setInterval(() => {
-      if (carouselApi.canScrollNext()) {
-        carouselApi.scrollNext();
-      } else {
-        // 마지막에서 처음으로
-        carouselApi.scrollTo(0);
-      }
-    }, 4000); // 4초마다 자동 슬라이드
+    // 자동 슬라이드 (최적화)
+    let autoplayTimeout: NodeJS.Timeout;
+    const startAutoplay = () => {
+      autoplayTimeout = setTimeout(() => {
+        if (carouselApi.canScrollNext()) {
+          carouselApi.scrollNext();
+        } else {
+          carouselApi.scrollTo(0);
+        }
+        startAutoplay();
+      }, 4000);
+    };
+    startAutoplay();
 
     return () => {
       carouselApi.off("select", updateSelection);
-      clearInterval(autoplayInterval);
+      if (autoplayTimeout) {
+        clearTimeout(autoplayTimeout);
+      }
     };
   }, [carouselApi]);
 
   return (
-    <section className="w-full py-16 md:py-32 max-w-[1200px] mx-auto overflow-visible">
-      <div className="px-4 md:px-8">
-        <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-8">
-          <div>
-            <h2 className="mb-3 text-[25px] font-semibold md:mb-4 md:text-[48px] lg:mb-4">
-              {heading}
-            </h2>
-            <Link
-              href={demoUrl}
-              className="group flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
-            >
-              더 알아보기
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-          <div className="mt-8 flex mr-[-32px] shrink-0 items-center justify-start gap-2">
+    <section className="w-full bg-gray-100 py-16 md:py-32 overflow-visible" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+      <div className="max-w-[1200px] mx-auto">
+        <div className="mb-8 flex flex-row items-center px-5 md:mb-14 md:px-0 lg:mb-8">
+          <h2 className="mb-0 flex-1 text-[25px] font-bold md:text-center md:text-[48px]" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}>
+            {heading}
+          </h2>
+          <div className="flex shrink-0 items-center justify-end gap-2">
             <Button
               size="icon"
               variant="outline"
@@ -147,53 +144,62 @@ const Gallery6 = ({
             </Button>
           </div>
         </div>
-      </div>
-      <div className="w-full overflow-visible -ml-4 md:-ml-0">
-        <Carousel
-          setApi={setCarouselApi}
-          opts={{
-            align: "start",
-            loop: true,
-            containScroll: "trimSnaps",
-            breakpoints: {
-              "(max-width: 768px)": {
-                dragFree: true,
-                loop: true,
+        <div className="w-full overflow-hidden">
+          <Carousel
+            setApi={setCarouselApi}
+            opts={{
+              align: "start",
+              loop: true,
+              containScroll: "keepSnaps",
+              slidesToScroll: 1,
+              skipSnaps: false,
+              dragFree: false,
+              breakpoints: {
+                "(max-width: 768px)": {
+                  dragFree: false,
+                  loop: true,
+                  slidesToScroll: 1,
+                  containScroll: "keepSnaps",
+                },
               },
-            },
-          }}
-          className="relative"
-        >
-          <CarouselContent className="ml-4 md:ml-8 -mr-4 md:-mr-8 overflow-visible">
-            {items.map((item) => (
-              <CarouselItem key={item.id} className="pl-4 basis-full md:basis-[calc(100%/2.2)] lg:basis-[calc(100%/2.4)] xl:basis-[calc(100%/2.8)]">
-                <div
-                  className="group flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex aspect-[3/2] overflow-clip rounded-xl">
-                      <div className="flex-1">
-                        <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="h-full w-full object-cover object-center"
-                          />
+            }}
+            className="relative"
+          >
+            <CarouselContent className="ml-0 md:ml-2" style={{ willChange: 'transform' }}>
+              {items.map((item, index) => (
+                <CarouselItem key={item.id} className={`pl-4 pr-4 md:pr-0 basis-full md:basis-[calc(100%/2.2)] lg:basis-[calc(100%/2.4)] xl:basis-[calc(100%/2.8)] ${index === items.length - 1 ? 'md:pr-2' : ''}`}>
+                  <div
+                    className="group flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex aspect-[3/2] overflow-clip rounded-xl">
+                        <div className="flex-1 relative">
+                          <div className="relative h-full w-full origin-bottom transition-transform duration-300 group-hover:scale-105 will-change-transform" style={{ transform: 'translateZ(0)' }}>
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              fill
+                              className="object-cover object-center"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              loading="lazy"
+                              quality={85}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-semibold md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+                      {item.title}
+                    </div>
+                    <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+                      {item.summary}
+                    </div>
                   </div>
-                  <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl">
-                    {item.title}
-                  </div>
-                  <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
-                    {item.summary}
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
       </div>
     </section>
   );

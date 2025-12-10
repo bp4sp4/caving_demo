@@ -170,7 +170,7 @@ export const siteConfig: SiteConfig = {
     detail: "B동 9층 906호",
   },
   educationGallery: {
-    heading: "교육원 소개",
+    heading: "교육원 내부",
     demoUrl: "/about",
     items: [
       {
