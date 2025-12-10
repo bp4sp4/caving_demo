@@ -115,11 +115,11 @@ const Gallery6 = ({
   return (
     <section className="w-full bg-gray-100 py-16 md:py-32 overflow-visible" style={{ fontFamily: 'Pretendard, sans-serif' }}>
       <div className="max-w-[1200px] mx-auto">
-        <div className="mb-8 flex flex-row items-center px-5 md:mb-14 md:px-0 lg:mb-8">
-          <h2 className="mb-0 flex-1 text-[25px] font-bold md:text-center md:text-[48px]" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}>
+        <div className="mb-8 flex flex-row items-center justify-center px-5 md:mb-14 md:justify-between md:px-0 lg:mb-8">
+          <h2 className="mb-0 text-center text-[25px] font-bold md:flex-1 md:text-[48px]" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}>
             {heading}
           </h2>
-          <div className="flex shrink-0 items-center justify-end gap-2">
+          <div className="hidden shrink-0 items-center justify-end gap-2 md:flex">
             <Button
               size="icon"
               variant="outline"
