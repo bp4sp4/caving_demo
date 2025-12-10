@@ -90,8 +90,19 @@ const Gallery6 = ({
 
     carouselApi.on("select", updateSelection);
 
+    // 자동 슬라이드
+    const autoplayInterval = setInterval(() => {
+      if (carouselApi.canScrollNext()) {
+        carouselApi.scrollNext();
+      } else {
+        // 마지막에서 처음으로
+        carouselApi.scrollTo(0);
+      }
+    }, 4000); // 4초마다 자동 슬라이드
+
     return () => {
       carouselApi.off("select", updateSelection);
+      clearInterval(autoplayInterval);
     };
   }, [carouselApi]);
 
@@ -137,25 +148,26 @@ const Gallery6 = ({
           </div>
         </div>
       </div>
-      <div className="w-full overflow-visible">
+      <div className="w-full overflow-visible -ml-4 md:-ml-0">
         <Carousel
           setApi={setCarouselApi}
           opts={{
             align: "start",
+            loop: true,
             containScroll: "trimSnaps",
             breakpoints: {
               "(max-width: 768px)": {
                 dragFree: true,
+                loop: true,
               },
             },
           }}
           className="relative"
         >
-          <CarouselContent className="ml-4 2xl:ml-[max(4rem,calc(50vw-600px+1rem))] -mr-4 md:-mr-8 overflow-visible">
+          <CarouselContent className="ml-4 md:ml-8 -mr-4 md:-mr-8 overflow-visible">
             {items.map((item) => (
               <CarouselItem key={item.id} className="pl-4 basis-full md:basis-[calc(100%/2.2)] lg:basis-[calc(100%/2.4)] xl:basis-[calc(100%/2.8)]">
-                <Link
-                  href={item.url}
+                <div
                   className="group flex flex-col justify-between"
                 >
                   <div>
@@ -177,11 +189,7 @@ const Gallery6 = ({
                   <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
                     {item.summary}
                   </div>
-                  <div className="flex items-center text-sm">
-                    더 알아보기{" "}
-                    <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                  </div>
-                </Link>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
