@@ -111,7 +111,7 @@ const Gallery6 = ({
       <div className="px-4 md:px-8">
         <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-8">
           <div>
-            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
+            <h2 className="mb-3 text-[25px] font-semibold md:mb-4 md:text-[48px] lg:mb-4">
               {heading}
             </h2>
             <Link
