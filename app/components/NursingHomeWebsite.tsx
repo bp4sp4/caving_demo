@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -20,6 +19,7 @@ import styles from "./NursingHomeWebsite.module.css";
 import FacilitiesGallery from "./FacilitiesGallery";
 import { Feature197, type FeatureItem } from "./Feature197";
 import { useSiteConfig } from "../config/siteConfig";
+import { Gallery6 } from "./ui/gallery6";
 
 
 interface HeroSlide {
@@ -176,7 +176,6 @@ const NursingHomeWebsite = ({
     "저희 요양원은 어르신들께 가족 같은 따뜻함과 전문적인 케어를 제공하는 것을 최우선으로 생각합니다. 20년 이상의 노하우와 경험을 바탕으로 어르신들의 건강하고 행복한 노후를 위해 최선을 다하고 있습니다.",
   contactInfo,
 }: NursingHomeProps) => {
-  const router = useRouter();
   const config = useSiteConfig();
   const finalHeroSlides = heroSlides ?? config.heroSlides;
   const finalContactInfo = contactInfo ?? config.contactInfo;
@@ -214,12 +213,7 @@ const NursingHomeWebsite = ({
                   <div className={styles.heroTextContainer}>
                     <h1 className={styles.heroTitle}>{slide.title}</h1>
                     <p className={styles.heroSubtitle}>{slide.subtitle}</p>
-                    <button
-                      className={styles.heroButton}
-                      onClick={() => router.push("/about")}
-                    >
-                      더 알아보기
-                    </button>
+                    <button className={styles.heroButton}> 더 알아보기 </button>
                   </div>
                 </div>
               </div>
@@ -247,6 +241,54 @@ const NursingHomeWebsite = ({
 
       {/* Facilities Gallery */}
       <FacilitiesGallery />
+
+      {/* Education Center Introduction Gallery */}
+      <Gallery6
+        heading="교육원 소개"
+        demoUrl="/about"
+        items={[
+          {
+            id: "edu-1",
+            title: "전문적인 교육 시스템",
+            summary:
+              "20년 이상의 노하우와 체계적인 교육과정을 통해 요양보호사 자격증 취득을 위한 전문 교육을 제공합니다.",
+            url: "/about",
+            image: "/main/main_about_001.jpeg",
+          },
+          {
+            id: "edu-2",
+            title: "실습 중심 교육",
+            summary:
+              "이론과 실습을 병행하는 실무 중심 교육으로 현장에서 바로 활용할 수 있는 전문성을 갖출 수 있습니다.",
+            url: "/about",
+            image: "/main/main_about_002.jpeg",
+          },
+          {
+            id: "edu-3",
+            title: "국비지원 가능",
+            summary:
+              "국비지원을 통해 부담 없이 교육을 받을 수 있으며, 빠른 재취업과 안정적인 수입을 보장받을 수 있습니다.",
+            url: "/about",
+            image: "/main/main_about_003.jpeg",
+          },
+          {
+            id: "edu-4",
+            title: "우수한 합격률",
+            summary:
+              "체계적인 교육 시스템과 전담 강사의 집중 관리로 높은 합격률을 자랑하며, 80대까지 모두 합격하셨습니다.",
+            url: "/about",
+            image: "/main/main_about_004.jpeg",
+          },
+          {
+            id: "edu-5",
+            title: "재취업 1위 자격증",
+            summary:
+              "요양보호사는 재취업 1위 자격증으로, 전문 교육과정을 통해 빠른 취업과 안정적인 수입을 보장받을 수 있습니다.",
+            url: "/Caregiver",
+              image: "/main/main_about_005.jpeg",
+          },
+        ]}
+      />
 
       {/* Feature197 Accordion Section (자주 묻는 질문) */}
       <Feature197 features={feature197Items} />
