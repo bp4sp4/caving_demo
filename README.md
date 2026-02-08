@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 Htmlstudy
 
-## Getting Started
+회사 업무의 일환으로 진행한 **웹 서비스 개발 프로젝트**입니다.  
+실무 환경과 유사한 협업 프로세스 속에서, 프론트엔드 중심으로 대부분의 개발을 직접 담당했습니다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠 프로젝트 정보
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **프로젝트명**: Htmlstudy  
+- **배포 환경**:  
+  - vercel    
+- **개발 기간**:  
+  - 2025.12.05 (목) ~ 2025.12.10  
+  - 5일
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 🧩 프로젝트 소개
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+본 프로젝트는 회사(업무)에서 진행한 서비스 개발 프로젝트로,  
+**프론트엔드 및 주요 기능 구현을 중심으로 대부분의 개발을 직접 담당**했습니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 디자이너님: 디자인 리소스 및 시안 제공, UI 조정 및 피드백
+- 기획자님(PM): 서비스 요구사항 정의 및 우선순위 설정
 
-## Deploy on Vercel
+역할이 명확히 분담된 상태에서  
+실제 실무와 유사한 협업 방식으로 프로젝트를 완성했습니다.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ❗ 프로젝트 진행 이유
+
+최신 웹 프레임워크인 **Next.js**를 활용해  
+실무에 가까운 웹 서비스를 구현하는 것이 목표였습니다.
+
+회사 업무 프로젝트였기 때문에,
+- 실제 운영 환경을 고려한 개발
+- 제한된 일정 속에서의 우선순위 판단
+- 배포 가능한 수준의 완성도 확보
+
+를 중요하게 생각하며 진행했습니다.
+
+Next.js의 **SSR / SSG**, **TypeScript**,  
+필요한 오픈소스 라이브러리를 활용해  
+성능과 유지보수성을 고려한 구조로 구현했습니다.
+
+---
+
+## 👤 기여 및 역할
+
+- **개발 (주요 구현)**  
+  - 프론트엔드 전반
+  - 일부 백엔드 API 연동
+  - 컴포넌트 구조 설계 및 코드 작성
+
+- **디자인**  
+  - 디자인 리소스 및 시안 제공
+  - UI/스타일 조정 및 피드백
+
+- **기획 / PM**  
+  - 서비스 요구사항 정의
+  - 기능 우선순위 설정
+
+---
+
+## 📎 어려웠던 점
+
+팀 프로젝트 특성상 의견 조율과 일정 관리가 쉽지 않았습니다.  
+특히 디자인 시안을 실제 코드로 옮기는 과정에서 CSS 레이아웃 문제를 자주 마주했습니다.
+
+- Flexbox / Grid / 반응형 레이아웃 구현
+- 디자인 의도를 최대한 유지하면서 코드로 재현
+- 색상, 폰트, 여백 등 디테일 조정 반복
+
+또한 기획 단계에서 제시된 기능 요구사항 중  
+기술적 제약이나 일정 문제로 고민해야 하는 경우도 많았습니다.
+
+Next.js의 **동적 라우팅**, **API 연동**, **상태 관리** 과정에서도 어려움이 있었지만,  
+팀원들과의 협업을 통해 문제를 하나씩 해결하며 성장할 수 있었습니다.
+
+---
+
+## 👍 아쉬운 점
+
+- 일정 제약으로 인해 모든 아이디어를 구현하지 못한 점
+- 사용자 인증, 실시간 알림, 고급 애니메이션 등 추가 기능 미구현
+- 리팩토링 및 테스트 코드 작성에 충분한 시간을 쓰지 못한 점
+
+완성도는 확보했지만,  
+유지보수성과 확장성 측면에서 더 다듬고 싶은 아쉬움이 남습니다.
+
+---
+
+## ✨ 좋았던 점
+
+- 실무와 유사한 협업 경험
+- 디자이너·기획자와의 커뮤니케이션을 통한 시야 확장
+- Next.js 핵심 기능(SSR, SSG, 라우팅, API 연동) 실전 적용
+- TypeScript 도입으로 코드 안정성과 가독성 향상
+
+프로젝트를 마무리하며  
+**팀워크의 중요성과 협업의 즐거움**,  
+그리고 개발자로서의 자신감을 얻을 수 있었습니다.
+
+---
+
+## 🔁 서비스 확장 계획 — 요양회사 템플릿화
+
+본 프로젝트는 **동일한 코드베이스를 유지한 채**  
+회사명·로고·텍스트·이미지 등 일부 데이터만 교체하여  
+다른 요양회사에 빠르게 납품할 수 있도록 **템플릿화**할 계획인 프로젝트입니다.
+
+### 📁 구조 개선 방향
+
+`app/page.tsx`에 직접 선언된 설정 값을 분리하여  
+단일 설정 파일에서 관리합니다.
